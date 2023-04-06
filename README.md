@@ -19,8 +19,16 @@ make help
 
 ## Starting environment
 
-Persisted volumes are locally stored under the directory `mounted_volumes`.  Before you start the containers, you first need to create the local directories.
+You first need to configure the system for your environment.  First
+copy the default configuration file `.defconfig` to `.config` and
+tailor it to your specific environment.
 
+Persisted volumes are locally stored under the directory `mounted_volumes`.
+
+The `makefile` performs all of this initial host setup as a
+convenience for you.
+
+To run the service in the background:
 ```bash
 make start
 ```
@@ -30,7 +38,7 @@ To stop the service, run
 make stop
 ```
 
-To remove the docker images and remove the persistent storage, type
+To remove the docker images and remove the persistent storage, type:
 ```bash
 make clean
 ```
