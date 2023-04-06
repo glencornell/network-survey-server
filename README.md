@@ -1,4 +1,4 @@
-# MQTT + Node-red + SQL database.
+# MQTT + Node-red + SQL database = Network Survey Server
 
 set up your own locally hosted server for the network survey android app
 
