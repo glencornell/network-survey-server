@@ -3335,8 +3335,8 @@
         "type": "amazon s3 in",
         "z": "295e02fcd67f44c9",
         "aws": "1f19a092c91729dd",
-        "bucket": "shadowview-photos",
-        "region": "us-gov-east-1",
+        "bucket": "@AWS_BUCKET_NAME@",
+        "region": "@AWS_REGION@",
         "filepattern": "",
         "name": "",
         "x": 200,
@@ -3450,7 +3450,7 @@
         "props": [
             {
                 "p": "Image.S3Object.Bucket",
-                "v": "shadowview-photos",
+                "v": "@AWS_BUCKET_NAME@",
                 "vt": "str"
             },
             {
@@ -3511,7 +3511,7 @@
         "z": "295e02fcd67f44c9",
         "g": "647235aa17cb6ba5",
         "name": "",
-        "info": "This node is broken:\n\nThe `shadowview-photos` bucket is in the `aws-gov-east-1` region, but the AWS Rekognition presently only works in the `aws-gov-west-1` region.  Therefore, you'll get an error:\n\n```failed: InvalidS3ObjectException: Unable to get object metadata from S3. Check object key, region and/or access permissions.```\n",
+        "info": "This node is broken:\n\nThe `@AWS_BUCKET_NAME@` bucket is in the `aws-gov-east-1` region, but the AWS Rekognition presently only works in the `aws-gov-west-1` region.  Therefore, you'll get an error:\n\n```failed: InvalidS3ObjectException: Unable to get object metadata from S3. Check object key, region and/or access permissions.```\n",
         "x": 720,
         "y": 540,
         "wires": []
@@ -3526,7 +3526,7 @@
                 "t": "set",
                 "p": "Image.S3Object.Bucket",
                 "pt": "msg",
-                "to": "shadowview-photos",
+                "to": "@AWS_BUCKET_NAME@",
                 "tot": "str"
             },
             {
