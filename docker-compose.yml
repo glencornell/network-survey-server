@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+
+  # Node-Red is our ETL engine, subscribing to MQTT observation messages from remote sensors and loading into the database back-end.
+  node-red:
+    build: node-red
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - broker
+    ports:
+      - "${NODE_RED_PORT}:1880"
+
+  # The database back-end
+  db:
+    build: db
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - ./mounted_volumes/postgres/postgres-data:/var/lib/postgresql/data
+      
+  # To add the above postgres database server to pgadmin, use hostname as defined by docker: 'db'
+  pgadmin:
+    build: pgadmin
+    links:
+      - db
+    depends_on:
+      - db
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - "${PGADMIN_PORT}:80"
+
+  # The MQTT broker is the ingestion point for observers (remote sensors) to publish observations
+  broker:
+    build: broker
+    restart: unless-stopped
+    ports:
+      - "${MQTT_PORT}:1883"
+      - "${MQTT_TLS_PORT}:8883"
+

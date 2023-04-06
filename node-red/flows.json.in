@@ -1,0 +1,3944 @@
+[
+    {
+        "id": "690f46f81108d7e1",
+        "type": "tab",
+        "label": "Load Role Players",
+        "disabled": false,
+        "info": "This loads the role players in the exercise from the database:\n - devices of interest (aka targets)\n - observers (aka partner forces)",
+        "env": []
+    },
+    {
+        "id": "90738234fed7d7b0",
+        "type": "tab",
+        "label": " Device Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "857134635217eb5a",
+        "type": "tab",
+        "label": "GNSS Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0681491d6e1bf82c",
+        "type": "tab",
+        "label": "Wi-Fi Beacon Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef21c72e93b11998",
+        "type": "tab",
+        "label": "WiFi Probe Requests",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "937ae7ad7ddf78cf",
+        "type": "tab",
+        "label": "WiFi OTA Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "897655053e98b1ee",
+        "type": "tab",
+        "label": "Bluetooth Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "394efdc83759cff5",
+        "type": "tab",
+        "label": "GSM Record",
+        "disabled": false,
+        "info": "to test this flow, type the following:\n\n",
+        "env": []
+    },
+    {
+        "id": "fcb497724f1e0357",
+        "type": "tab",
+        "label": "CDMA Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e1b60b95653fc9df",
+        "type": "tab",
+        "label": "UMTS Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "11c9f1a180595e15",
+        "type": "tab",
+        "label": "LTE Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f4e98c8aad6de2a5",
+        "type": "tab",
+        "label": "5G NR Record",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9c61f1408f8fd2b6",
+        "type": "tab",
+        "label": "Energy Detection",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1a94335e5ee9d8a0",
+        "type": "tab",
+        "label": "Signal Detection",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3b675473ecb3d5c3",
+        "type": "tab",
+        "label": "Cellular OTA Messages",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "295e02fcd67f44c9",
+        "type": "tab",
+        "label": "Image Recognition",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "32f01132f80a3a8f",
+        "type": "tab",
+        "label": "Map Entities",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1b15d1806d5363c3",
+        "type": "subflow",
+        "name": "fix timestamp",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 160,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "1e3136f371028362"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 620,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "1e3136f371028362",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "647235aa17cb6ba5",
+        "type": "group",
+        "z": "295e02fcd67f44c9",
+        "name": "Detect Faces",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0e513fa4b717ce25",
+            "44ee20bc8d658918"
+        ],
+        "x": 634,
+        "y": 439
+    },
+    {
+        "id": "2b0cf117.cff45e",
+        "type": "mqtt-broker",
+        "name": "mqtt://@MQTT_HOST@/network_survey",
+        "broker": "@MQTT_HOST@",
+        "port": "@MQTT_PORT@",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5d94fcb2.a8c3d4",
+        "type": "postgresdb",
+        "cfgname": "psql://@POSTGRES_HOST@/@POSTGRES_DB@",
+        "hostname": "@POSTGRES_HOST@",
+        "port": "@POSTGRES_PORT@",
+        "db": "@POSTGRES_DB@",
+        "ssl": false
+    },
+    {
+        "id": "1f19a092c91729dd",
+        "type": "aws-config"
+    },
+    {
+        "id": "da8734493285ad97",
+        "type": "amazon config",
+        "name": "AWS",
+        "region": "@AWS_REGION@",
+        "proxyRequired": false,
+        "proxy": ""
+    },
+    {
+        "id": "1e3136f371028362",
+        "type": "function",
+        "z": "1b15d1806d5363c3",
+        "name": "fix time",
+        "func": "// Fix the deviceTime field if the value is not what we expect\nif ((!msg.payload.data.deviceTime) ||                      // doesn't exist\n    (typeof msg.payload.data.deviceTime !== 'string') ||   // isn't a string \n    (msg.payload.data.deviceTime.trim().length === 0))     // is an empty string (or only whitespace)\n{\n    var date = new Date();\n    msg.payload.data.deviceTime = date.toISOString(); \n} else {\n    // at this point, assume that deviceTime is a \n    // valid RF3339 string, but may be in localtime.\n    // Convert it to UTC.\n    var devTime = new Date(msg.payload.data.deviceTime);\n    msg.payload.data.deviceTime = devTime.toISOString(); \n}\n\n// TODO: Other error conditions that can be checked for and fixed:\n// if deviceTime is too far in the future: (adjusted to UTC) > (currentTime (adjusted to UTC) + 24HRS), then set deviceTime = currentTime\n// if deviceTime is too far in the past:   (adjusted to UTC) < (currentTime (adjusted to UTC) - 24HRS), then set deviceTime = currentTime\n// if deviceTime has no time offset or timezone, then determine time offset from longitude (using https://github.com/evansiroky/node-geo-tz)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e84ead8dcbc5071",
+        "type": "comment",
+        "z": "1b15d1806d5363c3",
+        "name": "Fixes nodes with weird timestamps",
+        "info": "",
+        "x": 280,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "224a33e117ceef38",
+        "type": "comment",
+        "z": "690f46f81108d7e1",
+        "name": "read observers from database",
+        "info": "",
+        "x": 200,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ad74f971ae9bf86b",
+        "type": "inject",
+        "z": "690f46f81108d7e1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "f623fe8c39dcc188"
+            ]
+        ]
+    },
+    {
+        "id": "ea7cd592e75f394f",
+        "type": "postgres",
+        "z": "690f46f81108d7e1",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": true,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": true,
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "645e7190c89f3f1c",
+                "7d357f72cb186484"
+            ]
+        ]
+    },
+    {
+        "id": "645e7190c89f3f1c",
+        "type": "change",
+        "z": "690f46f81108d7e1",
+        "name": "set global.observers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "observers",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e36d612df27b5446",
+        "type": "comment",
+        "z": "690f46f81108d7e1",
+        "name": "load devices of interest from database",
+        "info": "",
+        "x": 230,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9d0399941e3f1e46",
+        "type": "inject",
+        "z": "690f46f81108d7e1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "9febdc7b46bc15d7"
+            ]
+        ]
+    },
+    {
+        "id": "a4681b19a6297cdd",
+        "type": "postgres",
+        "z": "690f46f81108d7e1",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": true,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": true,
+        "x": 640,
+        "y": 440,
+        "wires": [
+            [
+                "7aba96adc1a783ae",
+                "7d357f72cb186484"
+            ]
+        ]
+    },
+    {
+        "id": "7aba96adc1a783ae",
+        "type": "change",
+        "z": "690f46f81108d7e1",
+        "name": "set global.devicesOfInterest",
+        "rules": [
+            {
+                "t": "set",
+                "p": "devicesOfInterest",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6fa9bf1a7a7a4f8",
+        "type": "comment",
+        "z": "690f46f81108d7e1",
+        "name": "set device name",
+        "info": "If you set `flow.debug_deviceName` to:\n - `NONE`: no messages\n - <empty string>: all messages\n - <deviceName>: messages only from deviceName",
+        "x": 140,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "96166a5adbceffa9",
+        "type": "config",
+        "z": "690f46f81108d7e1",
+        "name": "set global.debug_deviceName",
+        "properties": [
+            {
+                "p": "debug_deviceName",
+                "pt": "global",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "active": true,
+        "x": 210,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7d357f72cb186484",
+        "type": "debug",
+        "z": "690f46f81108d7e1",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f623fe8c39dcc188",
+        "type": "sqlstring-format",
+        "z": "690f46f81108d7e1",
+        "name": "SELECT observers",
+        "query": "SELECT * FROM network_survey.observers\nLIMIT 100",
+        "vars": "",
+        "outField": "payload",
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "ea7cd592e75f394f"
+            ]
+        ]
+    },
+    {
+        "id": "9febdc7b46bc15d7",
+        "type": "sqlstring-format",
+        "z": "690f46f81108d7e1",
+        "name": "SELECT devices_of_interest",
+        "query": "SELECT * FROM network_survey.devices_of_interest\nLIMIT 100",
+        "vars": "",
+        "outField": "payload",
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "a4681b19a6297cdd"
+            ]
+        ]
+    },
+    {
+        "id": "fbdef15a7d7e0cde",
+        "type": "mqtt in",
+        "z": "90738234fed7d7b0",
+        "name": "device_status_message",
+        "topic": "device_status_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "2864ee285d1b0644"
+            ]
+        ]
+    },
+    {
+        "id": "2864ee285d1b0644",
+        "type": "json",
+        "z": "90738234fed7d7b0",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "41bf0820ece625fa"
+            ]
+        ]
+    },
+    {
+        "id": "2ca5445fd74117be",
+        "type": "function",
+        "z": "90738234fed7d7b0",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"DeviceStatus\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\n\n// observation-specific required fields:\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.device_status_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.batteryLevelPercent !== 'undefined') { msg.payload += \", battery_level_percent\"; values += \", $battery_level_percent\"; msg.queryParameters.battery_level_percent = m.data.batteryLevelPercent; }\nif (typeof m.data.error !== 'undefined') {\n  if (typeof m.data.error.errorMessage !== 'undefined') { msg.payload += \", error_message\"; values += \", $error_message\"; msg.queryParameters.error_message = m.data.errorMessage; }\n}\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 200,
+        "wires": [
+            [
+                "6b8bd0470c0ef33c",
+                "e06f2f49d8b3bf48"
+            ]
+        ]
+    },
+    {
+        "id": "661f0136fe37a3d6",
+        "type": "debug",
+        "z": "90738234fed7d7b0",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6b8bd0470c0ef33c",
+        "type": "postgres",
+        "z": "90738234fed7d7b0",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1180,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "267147fdfd6b6862",
+        "type": "debug",
+        "z": "90738234fed7d7b0",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e06f2f49d8b3bf48",
+        "type": "function",
+        "z": "90738234fed7d7b0",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 140,
+        "wires": [
+            [
+                "661f0136fe37a3d6",
+                "267147fdfd6b6862"
+            ]
+        ]
+    },
+    {
+        "id": "41bf0820ece625fa",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "90738234fed7d7b0",
+        "name": "",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "2ca5445fd74117be"
+            ]
+        ]
+    },
+    {
+        "id": "3c89ab2d244b2930",
+        "type": "mqtt in",
+        "z": "857134635217eb5a",
+        "name": "gnss_message",
+        "topic": "gnss_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "443f6f4754067e6b"
+            ]
+        ]
+    },
+    {
+        "id": "443f6f4754067e6b",
+        "type": "json",
+        "z": "857134635217eb5a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "5a7dc4a56020d75c",
+                "ef552f7e953abcf1",
+                "aab7c10afae03f8e"
+            ]
+        ]
+    },
+    {
+        "id": "31e2417fee82dee5",
+        "type": "function",
+        "z": "857134635217eb5a",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"GnssRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.gnss_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.constellation !== 'undefined') { msg.payload += \", constellation\"; values += \", $constellation\"; msg.queryParameters.constellation = m.data.constellation; }\nif (typeof m.data.spaceVehicleId !== 'undefined') { msg.payload += \", space_vehicle_id\"; values += \", $space_vehicle_id\"; msg.queryParameters.space_vehicle_id = m.data.spaceVehicleId; }\nif (typeof m.data.carrierFreqHz !== 'undefined') { msg.payload += \", carrier_freq_hz\"; values += \", $carrier_freq_hz\"; msg.queryParameters.carrier_freq_hz = m.data.carrierFreqHz; }\nif (typeof m.data.clockOffset !== 'undefined') { msg.payload += \", clock_offset\"; values += \", $clock_offset\"; msg.queryParameters.clock_offset = m.data.clockOffset; }\nif (typeof m.data.usedInSolution !== 'undefined') { msg.payload += \", used_in_solution\"; values += \", $used_in_solution\"; msg.queryParameters.used_in_solution = m.data.usedInSolution; }\nif (typeof m.data.undulationM !== 'undefined') { msg.payload += \", undulation_m\"; values += \", $undulation_m\"; msg.queryParameters.undulation_m = m.data.undulationM; }\nif (typeof m.data.latitudeStdDevM !== 'undefined') { msg.payload += \", latitude_std_dev_m\"; values += \", $latitude_std_dev_m\"; msg.queryParameters.latitude_std_dev_m = m.data.latitudeStdDevM; }\nif (typeof m.data.longitudeStdDevM !== 'undefined') { msg.payload += \", longitude_std_dev_m\"; values += \", $longitude_std_dev_m\"; msg.queryParameters.longitude_std_dev_m = m.data.longitudeStdDevM; }\nif (typeof m.data.altitudeStdDevM !== 'undefined') { msg.payload += \", altitude_std_dev_m\"; values += \", $altitude_std_dev_m\"; msg.queryParameters.altitude_std_dev_m = m.data.altitudeStdDevM; }\nif (typeof m.data.agcDb !== 'undefined') { msg.payload += \", agc_db\"; values += \", $agc_db\"; msg.queryParameters.agc_db = m.data.agcDb; }\nif (typeof m.data.cn0DbHz !== 'undefined') { msg.payload += \", cn0_db_hz\"; values += \", $cn0_db_hz\"; msg.queryParameters.cn0_db_hz = m.data.cn0DbHz; }\nif (typeof m.data.hdop !== 'undefined') { msg.payload += \", hdop\"; values += \", $hdop\"; msg.queryParameters.hdop = m.data.hdop; }\nif (typeof m.data.vdop !== 'undefined') { msg.payload += \", vdop\"; values += \", $vdop\"; msg.queryParameters.vdop = m.data.vdop; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 260,
+        "wires": [
+            [
+                "be5857a4ed8d635a",
+                "e3bd7a14ff61d610"
+            ]
+        ]
+    },
+    {
+        "id": "93b6d74ab6ddcf8f",
+        "type": "debug",
+        "z": "857134635217eb5a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "be5857a4ed8d635a",
+        "type": "postgres",
+        "z": "857134635217eb5a",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1140,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a6f1a493c21c743d",
+        "type": "debug",
+        "z": "857134635217eb5a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fb89fa91b48b723d",
+        "type": "debug",
+        "z": "857134635217eb5a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5a7dc4a56020d75c",
+        "type": "function",
+        "z": "857134635217eb5a",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "a6f1a493c21c743d"
+            ]
+        ]
+    },
+    {
+        "id": "e3bd7a14ff61d610",
+        "type": "function",
+        "z": "857134635217eb5a",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "93b6d74ab6ddcf8f",
+                "fb89fa91b48b723d"
+            ]
+        ]
+    },
+    {
+        "id": "6c367fa03d3bb085",
+        "type": "catch",
+        "z": "857134635217eb5a",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "5ebc0fc575468b93"
+            ]
+        ]
+    },
+    {
+        "id": "5ebc0fc575468b93",
+        "type": "debug",
+        "z": "857134635217eb5a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "error",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ef552f7e953abcf1",
+        "type": "link out",
+        "z": "857134635217eb5a",
+        "name": "Send to Map",
+        "mode": "link",
+        "links": [
+            "ad8fb832439d2fba"
+        ],
+        "x": 525,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "fbbd8b2a5ecf96d6",
+        "type": "comment",
+        "z": "857134635217eb5a",
+        "name": "Send to Map",
+        "info": "",
+        "x": 630,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "aab7c10afae03f8e",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "857134635217eb5a",
+        "name": "",
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "31e2417fee82dee5"
+            ]
+        ]
+    },
+    {
+        "id": "45c6a4b266312ee8",
+        "type": "inject",
+        "z": "857134635217eb5a",
+        "name": "click",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "8073d3778c059d74",
+                "588cd6413d8f3662"
+            ]
+        ]
+    },
+    {
+        "id": "2ce9a86ba1fc7f2e",
+        "type": "mqtt out",
+        "z": "857134635217eb5a",
+        "name": "",
+        "topic": "gnss_message",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b0cf117.cff45e",
+        "x": 620,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8073d3778c059d74",
+        "type": "function",
+        "z": "857134635217eb5a",
+        "name": "red-force-1 gnss_message",
+        "func": "msg.payload = {\"version\":\"0.8.0\",\"messageType\":\"GnssRecord\",\"data\":{\"deviceSerialNumber\":\"4a06f8a3f06375d1\",\"deviceName\":\"glen-phone\",\"deviceTime\":\"2023-03-23T17:40:53.838-04:00\",\"latitude\":27.080999300815165,\"longitude\":-82.34951946884394,\"altitude\":-5,\"missionId\":\"NS 4a06f8a3f06375d1 20230321-182418\",\"recordNumber\":62023,\"groupNumber\":2993,\"deviceModel\":\"SM-A505G\",\"accuracy\":5,\"constellation\":\"GALILEO\",\"spaceVehicleId\":13,\"carrierFreqHz\":\"1575420032\",\"latitudeStdDevM\":4.5,\"longitudeStdDevM\":4.5,\"altitudeStdDevM\":100,\"agcDb\":2.6,\"cn0DbHz\":34.6}}\nmsg.payload.data.deviceName='red-force-1'\nmsg.payload.data.latitude = 27.942658\nmsg.payload.data.longitude = -82.451324\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 540,
+        "wires": [
+            [
+                "2ce9a86ba1fc7f2e"
+            ]
+        ]
+    },
+    {
+        "id": "a96348e4b7710a4c",
+        "type": "comment",
+        "z": "857134635217eb5a",
+        "name": "inject gnss message",
+        "info": "This is used for testing without devices.\nJust click on this to inject a good & bad guy \ninto the broker.",
+        "x": 170,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "588cd6413d8f3662",
+        "type": "function",
+        "z": "857134635217eb5a",
+        "name": "observer-1 gnss_message",
+        "func": "msg.payload = {\"version\":\"0.8.0\",\"messageType\":\"GnssRecord\",\"data\":{\"deviceSerialNumber\":\"4a06f8a3f06375d1\",\"deviceName\":\"glen-phone\",\"deviceTime\":\"2023-03-23T17:40:53.838-04:00\",\"latitude\":27.080999300815165,\"longitude\":-82.34951946884394,\"altitude\":-5,\"missionId\":\"NS 4a06f8a3f06375d1 20230321-182418\",\"recordNumber\":62023,\"groupNumber\":2993,\"deviceModel\":\"SM-A505G\",\"accuracy\":5,\"constellation\":\"GALILEO\",\"spaceVehicleId\":13,\"carrierFreqHz\":\"1575420032\",\"latitudeStdDevM\":4.5,\"longitudeStdDevM\":4.5,\"altitudeStdDevM\":100,\"agcDb\":2.6,\"cn0DbHz\":34.6}}\nmsg.payload.data.deviceName='green-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "2ce9a86ba1fc7f2e"
+            ]
+        ]
+    },
+    {
+        "id": "47fb82dc0acce133",
+        "type": "mqtt in",
+        "z": "0681491d6e1bf82c",
+        "name": "80211_beacon_message",
+        "topic": "80211_beacon_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "f8d50883bdb7512f"
+            ]
+        ]
+    },
+    {
+        "id": "f8d50883bdb7512f",
+        "type": "json",
+        "z": "0681491d6e1bf82c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "f984e23dd902eb94",
+                "c15846208120206b",
+                "1b0da944ea61173b"
+            ]
+        ]
+    },
+    {
+        "id": "fdab35495a5eaa27",
+        "type": "function",
+        "z": "0681491d6e1bf82c",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"WifiBeaconRecord\") { return null; }\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Create the query:\nmsg.payload = \"INSERT INTO network_survey.wifi_beacon_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// wifi observation data\nif (typeof m.data.sourceAddress !== 'undefined') { msg.payload += \", source_address\"; values += \", $source_address\"; msg.queryParameters.source_address = m.data.sourceAddress.toLowerCase(); }\nif (typeof m.data.destinationAddress !== 'undefined') { msg.payload += \", destination_address\"; values += \", $destination_address\"; msg.queryParameters.destination_address = m.data.destinationAddress.toLowerCase(); }\nif (typeof m.data.bssid !== 'undefined') { msg.payload += \", bssid\"; values += \", $bssid\"; msg.queryParameters.bssid = m.data.bssid.toLowerCase(); }\nif (typeof m.data.beaconInterval !== 'undefined') { msg.payload += \", beacon_interval\"; values += \", $beacon_interval\"; msg.queryParameters.beacon_interval = m.data.beaconInterval; }\nif (typeof m.data.serviceSetType !== 'undefined') { msg.payload += \", service_set_type\"; values += \", $service_set_type\"; msg.queryParameters.service_set_type = m.data.serviceSetType; }\nif (typeof m.data.ssid !== 'undefined') { msg.payload += \", ssid\"; values += \", $ssid\"; msg.queryParameters.ssid = m.data.ssid; }\nif (typeof m.data.supportedRates !== 'undefined') { msg.payload += \", supported_rates\"; values += \", $supported_rates\"; msg.queryParameters.supported_rates = m.data.supportedRates; }\nif (typeof m.data.extendedSupportedRates !== 'undefined') { msg.payload += \", extended_supported_rates\"; values += \", $extended_supported_rates\"; msg.queryParameters.extended_supported_rates = m.data.extendedSupportedRates; }\n// TODO: how do i convert a javascript array to an SQL array?\n//if (typeof m.data.cipherSuites !== 'undefined') { msg.payload += \", cipher\" }\n// TODO: how do i convert a javascript array to an SQL array?\n//if (typeof m.data.akmSuites !== 'undefined') { msg.payload += \", akm\" }\nif (typeof m.data.encryptionType !== 'undefined') { msg.payload += \", encryption_type\"; values += \", $encryption_type\"; msg.queryParameters.encryption_type = m.data.encryptionType; }\nif (typeof m.data.wps !== 'undefined') { msg.payload += \", wps\"; values += \", $wps\"; msg.queryParameters.wps = m.data.wps; }\nif (typeof m.data.channel !== 'undefined') { msg.payload += \", channel\"; values += \", $channel\"; msg.queryParameters.channel = m.data.channel; }\nif (typeof m.data.frequencyMhz !== 'undefined') { msg.payload += \", frequency\"; values += \", $frequency\"; msg.queryParameters.frequency = m.data.frequencyMhz; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.snr !== 'undefined') { msg.payload += \", snr\"; values += \", $snr\"; msg.queryParameters.snr = m.data.snr; }\nif (typeof m.data.nodeType !== 'undefined') { msg.payload += \", node_type\"; values += \", $node_type\"; msg.queryParameters.node_type = m.data.nodeType; }\nif (typeof m.data.standard !== 'undefined') { msg.payload += \", standard\"; values += \", $standard\"; msg.queryParameters.standard = m.data.standard; }\n\nmsg.payload += \") VALUES (\" + values +  \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 260,
+        "wires": [
+            [
+                "c5dc0c66e1a34802",
+                "64013adcefbb8d37"
+            ]
+        ]
+    },
+    {
+        "id": "7b70ea525ccbaf32",
+        "type": "debug",
+        "z": "0681491d6e1bf82c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c5dc0c66e1a34802",
+        "type": "postgres",
+        "z": "0681491d6e1bf82c",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1140,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "60f808f935611801",
+        "type": "debug",
+        "z": "0681491d6e1bf82c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "46f5546085e241cc",
+        "type": "debug",
+        "z": "0681491d6e1bf82c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f984e23dd902eb94",
+        "type": "function",
+        "z": "0681491d6e1bf82c",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 60,
+        "wires": [
+            [
+                "60f808f935611801"
+            ]
+        ]
+    },
+    {
+        "id": "64013adcefbb8d37",
+        "type": "function",
+        "z": "0681491d6e1bf82c",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 160,
+        "wires": [
+            [
+                "46f5546085e241cc",
+                "7b70ea525ccbaf32"
+            ]
+        ]
+    },
+    {
+        "id": "c15846208120206b",
+        "type": "link out",
+        "z": "0681491d6e1bf82c",
+        "name": "Send to Map",
+        "mode": "link",
+        "links": [
+            "ad8fb832439d2fba"
+        ],
+        "x": 485,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "848974e66e8dc277",
+        "type": "comment",
+        "z": "0681491d6e1bf82c",
+        "name": "Send to Map",
+        "info": "",
+        "x": 590,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1b0da944ea61173b",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "0681491d6e1bf82c",
+        "name": "",
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "fdab35495a5eaa27"
+            ]
+        ]
+    },
+    {
+        "id": "c091c6ab11170717",
+        "type": "inject",
+        "z": "0681491d6e1bf82c",
+        "name": "click",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "a30654842db3b2f4",
+                "db9bce39938050b2"
+            ]
+        ]
+    },
+    {
+        "id": "08c2a09ba4133c62",
+        "type": "mqtt out",
+        "z": "0681491d6e1bf82c",
+        "name": "",
+        "topic": "80211_beacon_message",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b0cf117.cff45e",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a30654842db3b2f4",
+        "type": "function",
+        "z": "0681491d6e1bf82c",
+        "name": "red-force-1 80211_beacon_message",
+        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"WifiBeaconRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"sourceAddress\": \"68:7F:74:B0:14:98\",\n    \"destinationAddress\": \"68:7F:74:B0:14:22\",\n    \"bssid\": \"68:7F:74:B0:14:98\",\n    \"beaconInterval\": 100,\n    \"serviceSetType\": \"BSS\",\n    \"ssid\": \"My Wi-Fi Network\",\n    \"supportedRates\": \"1; 2; 5.5; 11; 18; 24; 36; 54\",\n    \"extendedSupportedRates\": \"6; 9; 12; 48\",\n    \"cipherSuites\": [\n      \"TKIP\",\n      \"CCMP\"\n    ],\n    \"akmSuites\": [\n      \"OPEN\"\n    ],\n    \"encryptionType\": \"WPA_WPA2\",\n    \"wps\": true,\n    \"channel\": 2,\n    \"frequencyMhz\": 2417,\n    \"signalStrength\": -73.1,\n    \"snr\": 19.2,\n    \"nodeType\": \"AP\",\n    \"standard\": \"IEEE80211N\"\n  }\n};\nmsg.payload.data.ssid='red-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [
+                "08c2a09ba4133c62"
+            ]
+        ]
+    },
+    {
+        "id": "85fd06a15dafd9eb",
+        "type": "comment",
+        "z": "0681491d6e1bf82c",
+        "name": "inject 80211_beacon_message",
+        "info": "This is used for testing without devices.\nJust click on this to inject wifi beacons\nthrough the broker.",
+        "x": 190,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "db9bce39938050b2",
+        "type": "function",
+        "z": "0681491d6e1bf82c",
+        "name": "green-force-1 80211_beacon_message",
+        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"WifiBeaconRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"sourceAddress\": \"68:7F:74:B0:14:98\",\n    \"destinationAddress\": \"68:7F:74:B0:14:22\",\n    \"bssid\": \"68:7F:74:B0:14:98\",\n    \"beaconInterval\": 100,\n    \"serviceSetType\": \"BSS\",\n    \"ssid\": \"My Wi-Fi Network\",\n    \"supportedRates\": \"1; 2; 5.5; 11; 18; 24; 36; 54\",\n    \"extendedSupportedRates\": \"6; 9; 12; 48\",\n    \"cipherSuites\": [\n      \"TKIP\",\n      \"CCMP\"\n    ],\n    \"akmSuites\": [\n      \"OPEN\"\n    ],\n    \"encryptionType\": \"WPA_WPA2\",\n    \"wps\": true,\n    \"channel\": 2,\n    \"frequencyMhz\": 2417,\n    \"signalStrength\": -73.1,\n    \"snr\": 19.2,\n    \"nodeType\": \"AP\",\n    \"standard\": \"IEEE80211N\"\n  }\n};\nmsg.payload.data.deviceName='green-force-2'\nmsg.payload.data.ssid='green-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 560,
+        "wires": [
+            [
+                "08c2a09ba4133c62"
+            ]
+        ]
+    },
+    {
+        "id": "8aea7b3489067ef9",
+        "type": "mqtt in",
+        "z": "ef21c72e93b11998",
+        "name": "80211_probe_request_message",
+        "topic": "80211_probe_request_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "2e58d79e7f85423c"
+            ]
+        ]
+    },
+    {
+        "id": "2e58d79e7f85423c",
+        "type": "json",
+        "z": "ef21c72e93b11998",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "6a42a95026bd8ed7",
+                "b9a1677728e053bb"
+            ]
+        ]
+    },
+    {
+        "id": "f9dccc09a1076f88",
+        "type": "function",
+        "z": "ef21c72e93b11998",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"WifiProbeRequestRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.sourceAddress === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.wifi_probe_request_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.sourceAddress !== 'undefined') { msg.payload += \", source_address\"; values += \", $source_address\"; msg.queryParameters.source_address = m.data.sourceAddress.toLowerCase(); }\nif (typeof m.data.destinationAddress !== 'undefined') { msg.payload += \", destination_address\"; values += \", $destination_address\"; msg.queryParameters.destination_address = m.data.destinationAddress.toLowerCase(); }\nif (typeof m.data.bssid !== 'undefined') { msg.payload += \", bssid\"; values += \", $bssid\"; msg.queryParameters.bssid = m.data.bssid.toLowerCase(); }\nif (typeof m.data.ssid !== 'undefined') { msg.payload += \", ssid\"; values += \", $ssid\"; msg.queryParameters.ssid = m.data.ssid; }\nif (typeof m.data.channel !== 'undefined') { msg.payload += \", channel\"; values += \", $channel\"; msg.queryParameters.channel = m.data.channel; }\nif (typeof m.data.frequencyMhz !== 'undefined') { msg.payload += \", frequency\"; values += \", $frequency\"; msg.queryParameters.frequency = m.data.frequencyMhz; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.snr !== 'undefined') { msg.payload += \", snr\"; values += \", $snr\"; msg.queryParameters.snr = m.data.snr; }\nif (typeof m.data.nodeType !== 'undefined') { msg.payload += \", node_type\"; values += \", $node_type\"; msg.queryParameters.node_type = m.data.nodeType; }\nif (typeof m.data.standard !== 'undefined') { msg.payload += \", standard\"; values += \", $standard\"; msg.queryParameters.standard = m.data.standard; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 200,
+        "wires": [
+            [
+                "b48ad662872d3a12",
+                "99652be5f35d9dc9"
+            ]
+        ]
+    },
+    {
+        "id": "ea69af30aec370ed",
+        "type": "debug",
+        "z": "ef21c72e93b11998",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b48ad662872d3a12",
+        "type": "postgres",
+        "z": "ef21c72e93b11998",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1160,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "74958b328f3fe132",
+        "type": "debug",
+        "z": "ef21c72e93b11998",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3607e22cd93dc0b6",
+        "type": "debug",
+        "z": "ef21c72e93b11998",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6a42a95026bd8ed7",
+        "type": "function",
+        "z": "ef21c72e93b11998",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 80,
+        "wires": [
+            [
+                "74958b328f3fe132"
+            ]
+        ]
+    },
+    {
+        "id": "99652be5f35d9dc9",
+        "type": "function",
+        "z": "ef21c72e93b11998",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 140,
+        "wires": [
+            [
+                "ea69af30aec370ed",
+                "3607e22cd93dc0b6"
+            ]
+        ]
+    },
+    {
+        "id": "b9a1677728e053bb",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "ef21c72e93b11998",
+        "name": "",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "f9dccc09a1076f88"
+            ]
+        ]
+    },
+    {
+        "id": "88db8715d1614c64",
+        "type": "mqtt in",
+        "z": "937ae7ad7ddf78cf",
+        "name": "wifi_ota_message",
+        "topic": "wifi_ota_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "a664a3eae82c770b"
+            ]
+        ]
+    },
+    {
+        "id": "a664a3eae82c770b",
+        "type": "json",
+        "z": "937ae7ad7ddf78cf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "6bcea28a6e15878f",
+                "37d770cf822f8a47"
+            ]
+        ]
+    },
+    {
+        "id": "46b0b5019b06f99d",
+        "type": "function",
+        "z": "937ae7ad7ddf78cf",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"WiFiOtaRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.pcapRecord === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.wifi_ota_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.pcapRecord !== 'undefined') { msg.payload += \", pcap_record\"; values += \", $pcap_record\"; msg.queryParameters.pcap_record = m.data.pcapRecord; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 220,
+        "wires": [
+            [
+                "0ee20fb2590df9f0",
+                "825954e6c2980eed"
+            ]
+        ]
+    },
+    {
+        "id": "0645eae4b4fb7fc0",
+        "type": "debug",
+        "z": "937ae7ad7ddf78cf",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0ee20fb2590df9f0",
+        "type": "postgres",
+        "z": "937ae7ad7ddf78cf",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1160,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9e197aed14c18ea7",
+        "type": "debug",
+        "z": "937ae7ad7ddf78cf",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2e94cc7501ac5b54",
+        "type": "debug",
+        "z": "937ae7ad7ddf78cf",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "825954e6c2980eed",
+        "type": "function",
+        "z": "937ae7ad7ddf78cf",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 140,
+        "wires": [
+            [
+                "0645eae4b4fb7fc0",
+                "2e94cc7501ac5b54"
+            ]
+        ]
+    },
+    {
+        "id": "6bcea28a6e15878f",
+        "type": "function",
+        "z": "937ae7ad7ddf78cf",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 80,
+        "wires": [
+            [
+                "9e197aed14c18ea7"
+            ]
+        ]
+    },
+    {
+        "id": "37d770cf822f8a47",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "937ae7ad7ddf78cf",
+        "name": "",
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "46b0b5019b06f99d"
+            ]
+        ]
+    },
+    {
+        "id": "60958b9ddafb4cad",
+        "type": "mqtt in",
+        "z": "897655053e98b1ee",
+        "name": "bluetooth_message",
+        "topic": "bluetooth_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "41e757bdc1df4caa"
+            ]
+        ]
+    },
+    {
+        "id": "41e757bdc1df4caa",
+        "type": "json",
+        "z": "897655053e98b1ee",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "4f7bf64ce73c2515",
+                "5ee0923116b48063",
+                "027f8a80d5dd23e2"
+            ]
+        ]
+    },
+    {
+        "id": "4eda769619b5fbec",
+        "type": "function",
+        "z": "897655053e98b1ee",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"BluetoothRecord\") { \n    return null;\n}\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Create the query:\nmsg.payload = \"INSERT INTO network_survey.bluetooth_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation data\nif (typeof m.data.sourceAddress !== 'undefined') { msg.payload += \", source_address\"; values += \", $source_address\"; msg.queryParameters.source_address = m.data.sourceAddress.toLowerCase(); }\nif (typeof m.data.destinationAddress !== 'undefined') { msg.payload += \", destination_address\"; values += \", $destination_address\"; msg.queryParameters.destination_address = m.data.destinationAddress.toLowerCase(); }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.txPower !== 'undefined') { msg.payload += \", tx_power\"; values += \", $tx_power\"; msg.queryParameters.tx_power = m.data.txPower; }\nif (typeof m.data.technology !== 'undefined') { msg.payload += \", technology\"; values += \", $technology\"; msg.queryParameters.technology = m.data.technology; }\nif (typeof m.data.supportedTechnologies !== 'undefined') { msg.payload += \", supported_technologies\"; values += \", $supported_technologies\"; msg.queryParameters.supported_technologies = m.data.supportedTechnologies; }\nif (typeof m.data.otaDeviceName !== 'undefined') { msg.payload += \", ota_device_name\"; values += \", $ota_device_name\"; msg.queryParameters.ota_device_name = m.data.otaDeviceName; }\nif (typeof m.data.channel !== 'undefined') { msg.payload += \", channel\"; values += \", $channel\"; msg.queryParameters.channel = m.data.channel; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 260,
+        "wires": [
+            [
+                "f28324dff5e21bbf",
+                "ca7d9a305fd734b0"
+            ]
+        ]
+    },
+    {
+        "id": "ce41bcf8f0fb13a1",
+        "type": "debug",
+        "z": "897655053e98b1ee",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f28324dff5e21bbf",
+        "type": "postgres",
+        "z": "897655053e98b1ee",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1160,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "281806241a097a28",
+        "type": "debug",
+        "z": "897655053e98b1ee",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1198dec8b8965ac0",
+        "type": "debug",
+        "z": "897655053e98b1ee",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4f7bf64ce73c2515",
+        "type": "function",
+        "z": "897655053e98b1ee",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "281806241a097a28"
+            ]
+        ]
+    },
+    {
+        "id": "ca7d9a305fd734b0",
+        "type": "function",
+        "z": "897655053e98b1ee",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 180,
+        "wires": [
+            [
+                "ce41bcf8f0fb13a1",
+                "1198dec8b8965ac0"
+            ]
+        ]
+    },
+    {
+        "id": "5ee0923116b48063",
+        "type": "link out",
+        "z": "897655053e98b1ee",
+        "name": "Send to Map",
+        "mode": "link",
+        "links": [
+            "ad8fb832439d2fba"
+        ],
+        "x": 505,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8bc384ead809bcbe",
+        "type": "comment",
+        "z": "897655053e98b1ee",
+        "name": "Send to Map",
+        "info": "",
+        "x": 610,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "027f8a80d5dd23e2",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "897655053e98b1ee",
+        "name": "",
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "4eda769619b5fbec"
+            ]
+        ]
+    },
+    {
+        "id": "706303c3d546d9f0",
+        "type": "inject",
+        "z": "897655053e98b1ee",
+        "name": "click",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "28039253eb8590d3"
+            ]
+        ]
+    },
+    {
+        "id": "dc5b63ae5675646d",
+        "type": "mqtt out",
+        "z": "897655053e98b1ee",
+        "name": "",
+        "topic": "bluetooth_message",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b0cf117.cff45e",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "28039253eb8590d3",
+        "type": "function",
+        "z": "897655053e98b1ee",
+        "name": "red-force-1 bluetooth_message",
+        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"BluetoothRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"sourceAddress\": \"68:7F:74:B0:14:98\",\n    \"destinationAddress\": \"68:7F:74:B0:14:22\",\n    \"signalStrength\": -73.1,\n    \"txPower\": 8,\n    \"technology\": \"LE\",\n    \"supportedTechnologies\": \"DUAL\",\n    \"otaDeviceName\": \"Apple Pencil\",\n    \"channel\": 2\n  }\n};\nmsg.payload.data.otaDeviceName='red-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nmsg.payload.data.signalStrength = -75\nmsg.payload.data.txPower = -50\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [
+                "dc5b63ae5675646d"
+            ]
+        ]
+    },
+    {
+        "id": "693a091a45bc6f21",
+        "type": "comment",
+        "z": "897655053e98b1ee",
+        "name": "inject bluetooth_message",
+        "info": "This is used for testing without devices.\nJust click on this to inject wifi beacons\nthrough the broker.",
+        "x": 190,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "71e4ced161443aed",
+        "type": "mqtt in",
+        "z": "394efdc83759cff5",
+        "name": "gsm_message",
+        "topic": "gsm_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "50d984e78eb7aab0"
+            ]
+        ]
+    },
+    {
+        "id": "50d984e78eb7aab0",
+        "type": "json",
+        "z": "394efdc83759cff5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "7e50786dcc1ab99f",
+                "23f47f800c3f52ce"
+            ]
+        ]
+    },
+    {
+        "id": "73ab48260de90164",
+        "type": "function",
+        "z": "394efdc83759cff5",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"GsmRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observarion-specific required fields:\nif (typeof m.data.arfcn === 'undefined') { return null; }\nif (typeof m.data.bsic === 'undefined') { return null; }\nif (typeof m.data.signalStrength === 'undefined') { return null; }\n\n// Create the INSERT query:\nmsg.payload = \"INSERT INTO network_survey.gsm_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation field names:\nif (typeof m.data.mcc !== 'undefined') { msg.payload += \", mcc\"; values += \", $mcc\"; msg.queryParameters.mcc = m.data.mcc; }\nif (typeof m.data.mnc !== 'undefined') { msg.payload += \", mnc\"; values += \", $mnc\"; msg.queryParameters.mnc = m.data.mnc; }\nif (typeof m.data.lac !== 'undefined') { msg.payload += \", lac\"; values += \", $lac\"; msg.queryParameters.lac = m.data.lac; }\nif (typeof m.data.ci !== 'undefined') { msg.payload += \", ci\"; values += \", $ci\"; msg.queryParameters.ci = m.data.ci; }\nif (typeof m.data.arfcn !== 'undefined') { msg.payload += \", arfcn\"; values += \", $arfcn\"; msg.queryParameters.arfcn = m.data.arfcn; }\nif (typeof m.data.bsic !== 'undefined') { msg.payload += \", bsic\"; values += \", $bsic\"; msg.queryParameters.bsic = m.data.bsic; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.ta !== 'undefined') { msg.payload += \", ta\"; values += \", $ta\"; msg.queryParameters.ta = m.data.ta; }\nif (typeof m.data.servingCell !== 'undefined') { msg.payload += \", serving_cell\"; values += \", $serving_cell\"; msg.queryParameters.serving_cell = m.data.servingCell; }\nif (typeof m.data.provider !== 'undefined') { msg.payload += \",  provider\"; values += \", $provider\"; msg.queryParameters.provider = m.data.provider; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "cc8712d68bbcb555",
+                "e35ef47391bf01fc"
+            ]
+        ]
+    },
+    {
+        "id": "bbdfa2e1aecad57f",
+        "type": "debug",
+        "z": "394efdc83759cff5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "cc8712d68bbcb555",
+        "type": "postgres",
+        "z": "394efdc83759cff5",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1180,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8de77063684ed872",
+        "type": "debug",
+        "z": "394efdc83759cff5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7e50786dcc1ab99f",
+        "type": "function",
+        "z": "394efdc83759cff5",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 60,
+        "wires": [
+            [
+                "8de77063684ed872"
+            ]
+        ]
+    },
+    {
+        "id": "e35ef47391bf01fc",
+        "type": "function",
+        "z": "394efdc83759cff5",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 140,
+        "wires": [
+            [
+                "bbdfa2e1aecad57f"
+            ]
+        ]
+    },
+    {
+        "id": "23f47f800c3f52ce",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "394efdc83759cff5",
+        "name": "",
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "73ab48260de90164"
+            ]
+        ]
+    },
+    {
+        "id": "bd7c95b264d40bad",
+        "type": "mqtt in",
+        "z": "fcb497724f1e0357",
+        "name": "cdma_message",
+        "topic": "cdma_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "85d8283e45ee8237"
+            ]
+        ]
+    },
+    {
+        "id": "85d8283e45ee8237",
+        "type": "json",
+        "z": "fcb497724f1e0357",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "7a961b1c146155f6",
+                "322b8162aa2abcbe"
+            ]
+        ]
+    },
+    {
+        "id": "f8d09bc22508887d",
+        "type": "function",
+        "z": "fcb497724f1e0357",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"CdmaRecord\") { \n    return null;\n}\n// Test for required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Observation-specific required fields:\nif (typeof m.data.channel === 'undefined') { return null; }\nif (typeof m.data.pnOffset === 'undefined') { return null; }\nif (typeof m.data.ecio === 'undefined') { return null; }\n\n// Create the INSERT query:\nmsg.payload = \"INSERT INTO network_survey.cdma_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation field names:\nif (typeof m.data.sid !== 'undefined') { msg.payload += \", sid\"; values += \", $sid\"; msg.queryParameters.sid = m.data.sid; }\nif (typeof m.data.nid !== 'undefined') { msg.payload += \", nid\"; values += \", $nid\"; msg.queryParameters.nid = m.data.nid; }\nif (typeof m.data.zone !== 'undefined') { msg.payload += \", zone\"; values += \", $zone\"; msg.queryParameters.zone = m.data.zone; }\nif (typeof m.data.bsid !== 'undefined') { msg.payload += \", bsid\"; values += \", $bsid\"; msg.queryParameters.bsid = m.data.bsid; }\nif (typeof m.data.channel !== 'undefined') { msg.payload += \", channel\"; values += \", $channel\"; msg.queryParameters.channel = m.data.channel; }\nif (typeof m.data.pnOffset !== 'undefined') { msg.payload += \", pn_offset\"; values += \", $pn_offset\"; msg.queryParameters.pn_offset = m.data.pnOffset; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.ecio !== 'undefined') { msg.payload += \", ecio\"; values += \", $ecio\"; msg.queryParameters.ecio = m.data.ecio; }\nif (typeof m.data.servingCell !== 'undefined') { msg.payload += \", serving_cell\"; values += \", $serving_cell\"; msg.queryParameters.serving_cell = m.data.servingCell; }\nif (typeof m.data.provider !== 'undefined') { msg.payload += \", provider\"; values += \", $provider\"; msg.queryParameters.provider = m.data.provider; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "2b5245dc0c618fb8",
+                "cdf858a0f23569d0"
+            ]
+        ]
+    },
+    {
+        "id": "6a40294f0c8e22b9",
+        "type": "debug",
+        "z": "fcb497724f1e0357",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2b5245dc0c618fb8",
+        "type": "postgres",
+        "z": "fcb497724f1e0357",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1200,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "be51a70535179bc0",
+        "type": "debug",
+        "z": "fcb497724f1e0357",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7a961b1c146155f6",
+        "type": "function",
+        "z": "fcb497724f1e0357",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 100,
+        "wires": [
+            [
+                "be51a70535179bc0"
+            ]
+        ]
+    },
+    {
+        "id": "cdf858a0f23569d0",
+        "type": "function",
+        "z": "fcb497724f1e0357",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 180,
+        "wires": [
+            [
+                "6a40294f0c8e22b9"
+            ]
+        ]
+    },
+    {
+        "id": "322b8162aa2abcbe",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "fcb497724f1e0357",
+        "name": "",
+        "x": 550,
+        "y": 260,
+        "wires": [
+            [
+                "f8d09bc22508887d"
+            ]
+        ]
+    },
+    {
+        "id": "4abbc56ac0a301d1",
+        "type": "mqtt in",
+        "z": "e1b60b95653fc9df",
+        "name": "umts_message",
+        "topic": "umts_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "d8b39f820d9a4c82"
+            ]
+        ]
+    },
+    {
+        "id": "d8b39f820d9a4c82",
+        "type": "json",
+        "z": "e1b60b95653fc9df",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "6ba889ca23afac4d",
+                "64573fdaf7a0ad41"
+            ]
+        ]
+    },
+    {
+        "id": "29637727af6af103",
+        "type": "function",
+        "z": "e1b60b95653fc9df",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"UmtsRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Observation-specific required fields:\nif (typeof m.data.uarfcn === 'undefined') { return null; }\nif (typeof m.data.psc === 'undefined') { return null; }\nif (typeof m.data.rscp === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.umts_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.mcc !== 'undefined') { msg.payload += \", mcc\"; values += \", $mcc\"; msg.queryParameters.mcc = m.data.mcc; }\nif (typeof m.data.mnc !== 'undefined') { msg.payload += \", mnc\"; values += \", $mnc\"; msg.queryParameters.mnc = m.data.mnc; }\nif (typeof m.data.lac !== 'undefined') { msg.payload += \", lac\"; values += \", $lac\"; msg.queryParameters.lac = m.data.lac; }\nif (typeof m.data.cid !== 'undefined') { msg.payload += \", cid\"; values += \", $cid\"; msg.queryParameters.cid = m.data.cid; }\nif (typeof m.data.uarfcn !== 'undefined') { msg.payload += \", uarfcn\"; values += \", $uarfcn\"; msg.queryParameters.uarfcn = m.data.uarfcn; }\nif (typeof m.data.psc !== 'undefined') { msg.payload += \", psc\"; values += \", $psc\"; msg.queryParameters.psc = m.data.psc; }\nif (typeof m.data.rscp !== 'undefined') { msg.payload += \", rscp\"; values += \", $rscp\"; msg.queryParameters.rscp = m.data.rscp; }\nif (typeof m.data.ecno !== 'undefined') { msg.payload += \", ecno\"; values += \", $ecno\"; msg.queryParameters.ecno = m.data.ecno; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.servingCell !== 'undefined') { msg.payload += \", serving_cell\"; values += \", $serving_cell\"; msg.queryParameters.serving_cell = m.data.servingCell; }\nif (typeof m.data.provider !== 'undefined') { msg.payload += \", provider\"; values += \", $provider\"; msg.queryParameters.provider = m.data.provider; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 240,
+        "wires": [
+            [
+                "cb9469a55abaa675",
+                "e3fd2e4b68a27c1e"
+            ]
+        ]
+    },
+    {
+        "id": "186630dcf61db119",
+        "type": "debug",
+        "z": "e1b60b95653fc9df",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cb9469a55abaa675",
+        "type": "postgres",
+        "z": "e1b60b95653fc9df",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1180,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e1eaa5d7c910a95b",
+        "type": "debug",
+        "z": "e1b60b95653fc9df",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6ba889ca23afac4d",
+        "type": "function",
+        "z": "e1b60b95653fc9df",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 60,
+        "wires": [
+            [
+                "e1eaa5d7c910a95b"
+            ]
+        ]
+    },
+    {
+        "id": "e3fd2e4b68a27c1e",
+        "type": "function",
+        "z": "e1b60b95653fc9df",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 120,
+        "wires": [
+            [
+                "186630dcf61db119"
+            ]
+        ]
+    },
+    {
+        "id": "64573fdaf7a0ad41",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "e1b60b95653fc9df",
+        "name": "",
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "29637727af6af103"
+            ]
+        ]
+    },
+    {
+        "id": "38b561e086ea0b63",
+        "type": "mqtt in",
+        "z": "11c9f1a180595e15",
+        "name": "lte_message",
+        "topic": "lte_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "930a90c4242f8ac8"
+            ]
+        ]
+    },
+    {
+        "id": "930a90c4242f8ac8",
+        "type": "json",
+        "z": "11c9f1a180595e15",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "d9e3516f3a2d5bbb",
+                "217541feacec9f6b"
+            ]
+        ]
+    },
+    {
+        "id": "711a41fa7ca8201b",
+        "type": "function",
+        "z": "11c9f1a180595e15",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"LteRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Observation-specific required fields:\nif (typeof m.data.earfcn === 'undefined') { return null; }\nif (typeof m.data.pci === 'undefined') { return null; }\nif (typeof m.data.rsrp === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.lte_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.mcc !== 'undefined') { msg.payload += \", mcc\"; values += \", $mcc\"; msg.queryParameters.mcc = m.data.mcc; }\nif (typeof m.data.mnc !== 'undefined') { msg.payload += \", mnc\"; values += \", $mnc\"; msg.queryParameters.mnc = m.data.mnc; }\nif (typeof m.data.tac !== 'undefined') { msg.payload += \", tac\"; values += \", $tac\"; msg.queryParameters.tac = m.data.tac; }\nif (typeof m.data.eci !== 'undefined') { msg.payload += \", eci\"; values += \", $eci\"; msg.queryParameters.eci = m.data.eci; }\nif (typeof m.data.earfcn !== 'undefined') { msg.payload += \", earfcn\"; values += \", $earfcn\"; msg.queryParameters.earfcn = m.data.earfcn; }\nif (typeof m.data.pci !== 'undefined') { msg.payload += \", pci\"; values += \", $pci\"; msg.queryParameters.pci = m.data.pci; }\nif (typeof m.data.rsrp !== 'undefined') { msg.payload += \", rsrp\"; values += \", $rsrp\"; msg.queryParameters.rsrp = m.data.rsrp; }\nif (typeof m.data.rsrq !== 'undefined') { msg.payload += \", rsrq\"; values += \", $rsrq\"; msg.queryParameters.rsrq = m.data.rsrq; }\nif (typeof m.data.ta !== 'undefined') { msg.payload += \", ta\"; values += \", $ta\"; msg.queryParameters.ta = m.data.ta; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.servingCell !== 'undefined') { msg.payload += \", serving_cell\"; values += \", $serving_cell\"; msg.queryParameters.serving_cell = m.data.servingCell; }\nif (typeof m.data.lteBandwidth !== 'undefined') { msg.payload += \", lte_bandwidth\"; values += \", $lte_bandwidth\"; msg.queryParameters.lte_bandwidth = m.data.lteBandwidth; }\nif (typeof m.data.provider !== 'undefined') { msg.payload += \", provider\"; values += \", $provider\"; msg.queryParameters.provider = m.data.provider; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [
+                "eb951b441f98e601",
+                "c70c42f97349f3a4"
+            ]
+        ]
+    },
+    {
+        "id": "a6abfd1806f670c6",
+        "type": "debug",
+        "z": "11c9f1a180595e15",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "eb951b441f98e601",
+        "type": "postgres",
+        "z": "11c9f1a180595e15",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1100,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1877fc6ea6c246af",
+        "type": "debug",
+        "z": "11c9f1a180595e15",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d9e3516f3a2d5bbb",
+        "type": "function",
+        "z": "11c9f1a180595e15",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 100,
+        "wires": [
+            [
+                "1877fc6ea6c246af"
+            ]
+        ]
+    },
+    {
+        "id": "c70c42f97349f3a4",
+        "type": "function",
+        "z": "11c9f1a180595e15",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 160,
+        "wires": [
+            [
+                "a6abfd1806f670c6"
+            ]
+        ]
+    },
+    {
+        "id": "217541feacec9f6b",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "11c9f1a180595e15",
+        "name": "",
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "711a41fa7ca8201b"
+            ]
+        ]
+    },
+    {
+        "id": "7cc7f2a458a483b0",
+        "type": "mqtt in",
+        "z": "f4e98c8aad6de2a5",
+        "name": "nr_message",
+        "topic": "nr_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "1701cf910c159df6"
+            ]
+        ]
+    },
+    {
+        "id": "1701cf910c159df6",
+        "type": "json",
+        "z": "f4e98c8aad6de2a5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "cca4dd25c981e721",
+                "a5d1ce07adbfb370"
+            ]
+        ]
+    },
+    {
+        "id": "5aea104b670a7c6f",
+        "type": "function",
+        "z": "f4e98c8aad6de2a5",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"NrRecord\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// Observation-specific required fields:\nif (typeof m.data.narfcn === 'undefined') { return null; }\nif (typeof m.data.pci === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.nr_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.mcc !== 'undefined') { msg.payload += \", mcc\"; values += \", $mcc\"; msg.queryParameters.mcc = m.data.mcc; }\nif (typeof m.data.mnc !== 'undefined') { msg.payload += \", mnc\"; values += \", $mnc\"; msg.queryParameters.mnc = m.data.mnc; }\nif (typeof m.data.tac !== 'undefined') { msg.payload += \", tac\"; values += \", $tac\"; msg.queryParameters.tac = m.data.tac; }\nif (typeof m.data.nci !== 'undefined') { msg.payload += \", nci\"; values += \", $nci\"; msg.queryParameters.nci = m.data.nci; }\nif (typeof m.data.narfcn !== 'undefined') { msg.payload += \", narfcn\"; values += \", $narfcn\"; msg.queryParameters.narfcn = m.data.narfcn; }\nif (typeof m.data.pci !== 'undefined') { msg.payload += \", pci\"; values += \", $pci\"; msg.queryParameters.pci = m.data.pci; }\nif (typeof m.data.ssRsrp !== 'undefined') { msg.payload += \", ss_rsrp\"; values += \", $ss_rsrp\"; msg.queryParameters.ss_rsrp = m.data.ssRsrp; }\nif (typeof m.data.ssSinr !== 'undefined') { msg.payload += \", ss_sinr\"; values += \", $ss_sinr\"; msg.queryParameters.ss_sinr = m.data.ssSinr; }\nif (typeof m.data.csiRsrp !== 'undefined') { msg.payload += \", csi_rsrp\"; values += \", $csi_rsrp\"; msg.queryParameters.csi_rsrp = m.data.csiRsrp; }\nif (typeof m.data.csiRsrq !== 'undefined') { msg.payload += \", csi_rsrq\"; values += \", $csi_rsrq\"; msg.queryParameters.csi_rsrq = m.data.csiRsrq; }\nif (typeof m.data.csiSinr !== 'undefined') { msg.payload += \", csi_sinr\"; values += \", $csi_sinr\"; msg.queryParameters.csi_sinr = m.data.csiSinr; }\nif (typeof m.data.ta !== 'undefined') { msg.payload += \", ta\"; values += \", $ta\"; msg.queryParameters.ta = m.data.ta; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.servingCell !== 'undefined') { msg.payload += \", serving_cell\"; values += \", $serving_cell\"; msg.queryParameters.serving_cell = m.data.servingCell; }\nif (typeof m.data.provider !== 'undefined') { msg.payload += \", provider\"; values += \", $provider\"; msg.queryParameters.provider = m.data.provider; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "bbfa4d209dfaf078",
+                "0da10e67edf4b613"
+            ]
+        ]
+    },
+    {
+        "id": "7c666c41af1a0f6d",
+        "type": "debug",
+        "z": "f4e98c8aad6de2a5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bbfa4d209dfaf078",
+        "type": "postgres",
+        "z": "f4e98c8aad6de2a5",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1140,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "16c93b1719bd6384",
+        "type": "debug",
+        "z": "f4e98c8aad6de2a5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cca4dd25c981e721",
+        "type": "function",
+        "z": "f4e98c8aad6de2a5",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "16c93b1719bd6384"
+            ]
+        ]
+    },
+    {
+        "id": "0da10e67edf4b613",
+        "type": "function",
+        "z": "f4e98c8aad6de2a5",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 140,
+        "wires": [
+            [
+                "7c666c41af1a0f6d"
+            ]
+        ]
+    },
+    {
+        "id": "a5d1ce07adbfb370",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "f4e98c8aad6de2a5",
+        "name": "",
+        "x": 490,
+        "y": 220,
+        "wires": [
+            [
+                "5aea104b670a7c6f"
+            ]
+        ]
+    },
+    {
+        "id": "567c1a56ad855f1b",
+        "type": "mqtt in",
+        "z": "9c61f1408f8fd2b6",
+        "name": "energy_detection_message",
+        "topic": "energy_detection_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "a12a95444b602e6c"
+            ]
+        ]
+    },
+    {
+        "id": "a12a95444b602e6c",
+        "type": "json",
+        "z": "9c61f1408f8fd2b6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "ceb9804e2541c117",
+                "571818dd1aebdb40"
+            ]
+        ]
+    },
+    {
+        "id": "be9bcbcf7853a016",
+        "type": "function",
+        "z": "9c61f1408f8fd2b6",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"EnergyDetection\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.frequencyHz === 'undefined') { return null; }\nif (typeof m.data.signalStrength === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.energy_detection_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.frequencyHz !== 'undefined') { msg.payload += \", frequency_hz\"; values += \", $frequency_hz\"; msg.queryParameters.frequency_hz = m.data.frequencyHz; }\nif (typeof m.data.bandwidthHz !== 'undefined') { msg.payload += \", bandwidth_hz\"; values += \", $bandwidth_hz\"; msg.queryParameters.bandwidth_hz = m.data.bandwidthHz; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.snr !== 'undefined') { msg.payload += \", snr\"; values += \", $snr\"; msg.queryParameters.snr = m.data.snr; }\nif (typeof m.data.timeUp !== 'undefined') { msg.payload += \", time_up\"; values += \", $time_up\"; msg.queryParameters.device_time_up = m.data.timeUp; }\nif (typeof m.data.durationSec !== 'undefined') { msg.payload += \", duration_sec\"; values += \", $duration_sec\"; msg.queryParameters.duration_sec = m.data.durationSec; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "bb0fe158efcd6094",
+                "4abc8749da04bc89"
+            ]
+        ]
+    },
+    {
+        "id": "747c8c77649b56be",
+        "type": "debug",
+        "z": "9c61f1408f8fd2b6",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bb0fe158efcd6094",
+        "type": "postgres",
+        "z": "9c61f1408f8fd2b6",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1160,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a045527bfabc9680",
+        "type": "debug",
+        "z": "9c61f1408f8fd2b6",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ceb9804e2541c117",
+        "type": "function",
+        "z": "9c61f1408f8fd2b6",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 60,
+        "wires": [
+            [
+                "a045527bfabc9680"
+            ]
+        ]
+    },
+    {
+        "id": "4abc8749da04bc89",
+        "type": "function",
+        "z": "9c61f1408f8fd2b6",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 140,
+        "wires": [
+            [
+                "747c8c77649b56be"
+            ]
+        ]
+    },
+    {
+        "id": "571818dd1aebdb40",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "9c61f1408f8fd2b6",
+        "name": "",
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "be9bcbcf7853a016"
+            ]
+        ]
+    },
+    {
+        "id": "1f5ae179c6a8f8c6",
+        "type": "mqtt in",
+        "z": "1a94335e5ee9d8a0",
+        "name": "signal_detection_message",
+        "topic": "signal_detection_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "79e21cc72fe4cea7"
+            ]
+        ]
+    },
+    {
+        "id": "79e21cc72fe4cea7",
+        "type": "json",
+        "z": "1a94335e5ee9d8a0",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "6c7e76f5f7cc938f",
+                "629caabc3c753dfc"
+            ]
+        ]
+    },
+    {
+        "id": "243d634bb8a09303",
+        "type": "function",
+        "z": "1a94335e5ee9d8a0",
+        "name": "generate query",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Sanity checks\nif (m.messageType !== \"SignalDetection\") { \n    return null;\n}\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.frequencyHz === 'undefined') { return null; }\nif (typeof m.data.signalStrength === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.signal_detection_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.frequencyHz !== 'undefined') { msg.payload += \", frequency_hz\"; values += \", $frequency_hz\"; msg.queryParameters.frequency_hz = m.data.frequencyHz; }\nif (typeof m.data.bandwidthHz !== 'undefined') { msg.payload += \", bandwidth_hz\"; values += \", $bandwidth_hz\"; msg.queryParameters.bandwidth_hz = m.data.bandwidthHz; }\nif (typeof m.data.signalStrength !== 'undefined') { msg.payload += \", signal_strength\"; values += \", $signal_strength\"; msg.queryParameters.signal_strength = m.data.signalStrength; }\nif (typeof m.data.snr !== 'undefined') { msg.payload += \", snr\"; values += \", $snr\"; msg.queryParameters.snr = m.data.snr; }\nif (typeof m.data.timeUp !== 'undefined') { msg.payload += \", time_up\"; values += \", $time_up\"; msg.queryParameters.device_time_up = m.data.timeUp; }\nif (typeof m.data.durationSec !== 'undefined') { msg.payload += \", duration_sec\"; values += \", $duration_sec\"; msg.queryParameters.duration_sec = m.data.durationSec; }\nif (typeof m.data.modulation !== 'undefined') { msg.payload += \", modulation\"; values += \", $modulation\"; msg.queryParameters.modulation = m.data.modulation; }\nif (typeof m.data.signalName !== 'undefined') { msg.payload += \", signal_name\"; values += \", $signal_name\"; msg.queryParameters.signal_name = m.data.signalName; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [
+                "5edf939a4204631a",
+                "a1ca81a6213f5180"
+            ]
+        ]
+    },
+    {
+        "id": "e66556fbf02105f5",
+        "type": "debug",
+        "z": "1a94335e5ee9d8a0",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5edf939a4204631a",
+        "type": "postgres",
+        "z": "1a94335e5ee9d8a0",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1080,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "731d5ae58518418b",
+        "type": "debug",
+        "z": "1a94335e5ee9d8a0",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6c7e76f5f7cc938f",
+        "type": "function",
+        "z": "1a94335e5ee9d8a0",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 60,
+        "wires": [
+            [
+                "731d5ae58518418b"
+            ]
+        ]
+    },
+    {
+        "id": "a1ca81a6213f5180",
+        "type": "function",
+        "z": "1a94335e5ee9d8a0",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "e66556fbf02105f5"
+            ]
+        ]
+    },
+    {
+        "id": "629caabc3c753dfc",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "1a94335e5ee9d8a0",
+        "name": "",
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "243d634bb8a09303"
+            ]
+        ]
+    },
+    {
+        "id": "91d3b92cd0a3dceb",
+        "type": "mqtt in",
+        "z": "3b675473ecb3d5c3",
+        "name": "cellular_ota_message",
+        "topic": "cellular_ota_message",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "2b0cf117.cff45e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "cef2e4bf739ccde8"
+            ]
+        ]
+    },
+    {
+        "id": "cef2e4bf739ccde8",
+        "type": "json",
+        "z": "3b675473ecb3d5c3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 340,
+        "wires": [
+            [
+                "93811460c9195209",
+                "c4040f8fe4bd0ac9"
+            ]
+        ]
+    },
+    {
+        "id": "d30893b992fcdcb1",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "generate query (GsmSignaling)",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.channelType === 'undefined') { return null; }\nif (typeof m.data.pcapRecord === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.gsm_signaling_ota_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.channelType !== 'undefined') { msg.payload += \", channel_type\"; values += \", $channel_type\"; msg.queryParameters.channel_type = m.data.channelType; }\nif (typeof m.data.pcapRecord !== 'undefined') { msg.payload += \", pcap_record\"; values += \", $pcap_record\"; msg.queryParameters.pcap_record = m.data.pcapRecord; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 180,
+        "wires": [
+            [
+                "0144dc9faadce6d6",
+                "6190a844400ff530"
+            ]
+        ]
+    },
+    {
+        "id": "131df1b5bf7db6a3",
+        "type": "debug",
+        "z": "3b675473ecb3d5c3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "0144dc9faadce6d6",
+        "type": "postgres",
+        "z": "3b675473ecb3d5c3",
+        "postgresdb": "5d94fcb2.a8c3d4",
+        "name": "",
+        "output": false,
+        "perrow": false,
+        "rowspermsg": "1",
+        "return_on_error": false,
+        "limit_queries": "0",
+        "limit_by": "payload",
+        "limit_value": "1",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": false,
+        "x": 1240,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d2f1bdb0fa2149fd",
+        "type": "debug",
+        "z": "3b675473ecb3d5c3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fb3ddc5856bf7582",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "generate query (UmtsNas)",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.pcapRecord === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.umts_nas_ota_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.pcapRecord !== 'undefined') { msg.payload += \", pcap_record\"; values += \", $pcap_record\"; msg.queryParameters.pcap_record = m.data.pcapRecord; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 260,
+        "wires": [
+            [
+                "0144dc9faadce6d6",
+                "6190a844400ff530"
+            ]
+        ]
+    },
+    {
+        "id": "a32ad41b24ed9501",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "generate query (WcdmaRrc)",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.channelType === 'undefined') { return null; }\nif (typeof m.data.pcapRecord === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.wcdma_rrc_ota_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.channelType !== 'undefined') { msg.payload += \", channel_type\"; values += \", $channel_type\"; msg.queryParameters.channel_type = m.data.channelType; }\nif (typeof m.data.pcapRecord !== 'undefined') { msg.payload += \", pcap_record\"; values += \", $pcap_record\"; msg.queryParameters.pcap_record = m.data.pcapRecord; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 340,
+        "wires": [
+            [
+                "0144dc9faadce6d6",
+                "6190a844400ff530"
+            ]
+        ]
+    },
+    {
+        "id": "1adae8e804cef0ad",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "generate query (LteRrc)",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.channelType === 'undefined') { return null; }\nif (typeof m.data.pcapRecord === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.lte_rrc_ota_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.channelType !== 'undefined') { msg.payload += \", channel_type\"; values += \", $channel_type\"; msg.queryParameters.channel_type = m.data.channelType; }\nif (typeof m.data.pcapRecord !== 'undefined') { msg.payload += \", pcap_record\"; values += \", $pcap_record\"; msg.queryParameters.pcap_record = m.data.pcapRecord; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 440,
+        "wires": [
+            [
+                "0144dc9faadce6d6",
+                "6190a844400ff530"
+            ]
+        ]
+    },
+    {
+        "id": "48267a9765da6eeb",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "generate query (LteNas)",
+        "func": "var m = msg.payload;\nvar values = \"\";\n\n// Common required fields:\nif (typeof m.data.deviceSerialNumber === 'undefined') { return null; }\nif (typeof m.data.missionId === 'undefined') { return null; }\n\n// observation-specific required fields:\nif (typeof m.data.channelType === 'undefined') { return null; }\nif (typeof m.data.pcapRecord === 'undefined') { return null; }\n\n// Create INSERT query:\nmsg.payload = \"INSERT INTO network_survey.lte_nas_ota_observations (\";\nmsg.queryParameters = {};\nmsg.payload += \"device_serial_number\"; values += \"$device_serial_number\"; msg.queryParameters.device_serial_number = m.data.deviceSerialNumber;\nmsg.payload += \", device_name\"; values += \", $device_name\"; msg.queryParameters.device_name = m.data.deviceName;\nmsg.payload += \", mission_id\"; values += \", $mission_id\"; msg.queryParameters.mission_id = m.data.missionId;\nmsg.payload += \", device_time\"; values += \", $device_time\"; msg.queryParameters.device_time = m.data.deviceTime;\n\nif ((typeof m.data.latitude !== 'undefined') && (typeof m.data.longitude !== 'undefined')) { msg.payload += \", geom\"; values += \", ST_GeomFromText('POINT(\" + m.data.longitude + \" \" + m.data.latitude + \")')\" }\nif (typeof m.data.altitude !== 'undefined') { msg.payload += \", altitude\"; values += \", $altitude\"; msg.queryParameters.altitude = m.data.altitude; }\nif (typeof m.data.accuracy !== 'undefined') { msg.payload += \", accuracy\"; values += \", $accuracy\"; msg.queryParameters.accuracy = m.data.accuracy; }\nif (typeof m.data.heading !== 'undefined') { msg.payload += \", heading\"; values += \", $heading\"; msg.queryParameters.heading = m.data.heading; }\nif (typeof m.data.pitch !== 'undefined') { msg.payload += \", pitch\"; values += \", $pitch\"; msg.queryParameters.pitch = m.data.pitch; }\nif (typeof m.data.roll !== 'undefined') { msg.payload += \", roll\"; values += \", $roll\"; msg.queryParameters.roll = m.data.roll; }\nif (typeof m.data.fieldOfView !== 'undefined') { msg.payload += \", field_of_view\"; values += \", $field_of_view\"; msg.queryParameters.field_of_view = m.data.fieldOfView; }\nif (typeof m.data.receiverSensitivity !== 'undefined') { msg.payload += \", receiver_sensitivity\"; values += \", $receiver_sensitivity\"; msg.queryParameters.receiver_sensitivity = m.data.receiverSensitivity; }\n\n// observation-specific field names:\nif (typeof m.data.channelType !== 'undefined') { msg.payload += \", channel_type\"; values += \", $channel_type\"; msg.queryParameters.channel_type = m.data.channelType; }\nif (typeof m.data.pcapRecord !== 'undefined') { msg.payload += \", pcap_record\"; values += \", $pcap_record\"; msg.queryParameters.pcap_record = m.data.pcapRecord; }\n\nmsg.payload += \") VALUES (\" + values + \")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 540,
+        "wires": [
+            [
+                "0144dc9faadce6d6",
+                "6190a844400ff530"
+            ]
+        ]
+    },
+    {
+        "id": "93811460c9195209",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.payload.data.deviceName;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 80,
+        "wires": [
+            [
+                "d2f1bdb0fa2149fd"
+            ]
+        ]
+    },
+    {
+        "id": "6190a844400ff530",
+        "type": "function",
+        "z": "3b675473ecb3d5c3",
+        "name": "select deviceName",
+        "func": "var expected = global.get('debug_deviceName')\nvar actual = msg.queryParameters.device_name;\n\nif (!expected \n    || expected.trim().length === 0 \n    || expected === actual)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 540,
+        "wires": [
+            [
+                "131df1b5bf7db6a3"
+            ]
+        ]
+    },
+    {
+        "id": "c4040f8fe4bd0ac9",
+        "type": "subflow:1b15d1806d5363c3",
+        "z": "3b675473ecb3d5c3",
+        "name": "",
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "4af63e68913a6bc3"
+            ]
+        ]
+    },
+    {
+        "id": "4af63e68913a6bc3",
+        "type": "switch",
+        "z": "3b675473ecb3d5c3",
+        "name": "",
+        "property": "payload.messageType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "GsmSignaling",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UmtsNas",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "WcdmaRrc",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "LteRrc",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "LteNas",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 5,
+        "x": 590,
+        "y": 340,
+        "wires": [
+            [
+                "d30893b992fcdcb1"
+            ],
+            [
+                "fb3ddc5856bf7582"
+            ],
+            [
+                "a32ad41b24ed9501"
+            ],
+            [
+                "1adae8e804cef0ad"
+            ],
+            [
+                "48267a9765da6eeb"
+            ]
+        ]
+    },
+    {
+        "id": "3636c923a4329ae8",
+        "type": "amazon s3 in",
+        "z": "295e02fcd67f44c9",
+        "aws": "1f19a092c91729dd",
+        "bucket": "shadowview-photos",
+        "region": "us-gov-east-1",
+        "filepattern": "",
+        "name": "",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "e36c7c6da10a3d92",
+                "9291cc5959382814",
+                "3c10afaab2fce8b6",
+                "40d9a43bcb7424e2"
+            ]
+        ]
+    },
+    {
+        "id": "e36c7c6da10a3d92",
+        "type": "debug",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9291cc5959382814",
+        "type": "debug",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "file",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3c10afaab2fce8b6",
+        "type": "debug",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "event",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0e513fa4b717ce25",
+        "type": "AWS Rekognition",
+        "z": "295e02fcd67f44c9",
+        "g": "647235aa17cb6ba5",
+        "aws": "da8734493285ad97",
+        "operation": "DetectFaces",
+        "SourceImage": "",
+        "TargetImage": "",
+        "CollectionId": "",
+        "ProjectName": "",
+        "ProjectArn": "",
+        "VersionName": "",
+        "OutputConfig": "",
+        "TrainingData": "",
+        "TestingData": "",
+        "Input": "",
+        "Output": "",
+        "Name": "",
+        "Settings": "",
+        "RoleArn": "",
+        "FaceIds": "",
+        "ProjectVersionArn": "",
+        "Image": "",
+        "Id": "",
+        "JobId": "",
+        "FaceId": "",
+        "Video": "",
+        "MinInferenceUnits": "",
+        "SegmentTypes": "",
+        "name": "",
+        "x": 770,
+        "y": 480,
+        "wires": [
+            [
+                "9617a4cc5e8a9b5d"
+            ],
+            [
+                "123a1d776a03a218"
+            ]
+        ]
+    },
+    {
+        "id": "73c6db762c829c1f",
+        "type": "inject",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "props": [
+            {
+                "p": "Image.S3Object.Bucket",
+                "v": "shadowview-photos",
+                "vt": "str"
+            },
+            {
+                "p": "Image.S3Object.Name",
+                "v": "test1/cali_glen6.jpg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 370,
+        "y": 480,
+        "wires": [
+            [
+                "0e513fa4b717ce25"
+            ]
+        ]
+    },
+    {
+        "id": "9617a4cc5e8a9b5d",
+        "type": "debug",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "123a1d776a03a218",
+        "type": "debug",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "44ee20bc8d658918",
+        "type": "comment",
+        "z": "295e02fcd67f44c9",
+        "g": "647235aa17cb6ba5",
+        "name": "",
+        "info": "This node is broken:\n\nThe `shadowview-photos` bucket is in the `aws-gov-east-1` region, but the AWS Rekognition presently only works in the `aws-gov-west-1` region.  Therefore, you'll get an error:\n\n```failed: InvalidS3ObjectException: Unable to get object metadata from S3. Check object key, region and/or access permissions.```\n",
+        "x": 720,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "81641ad1e0b4ed37",
+        "type": "change",
+        "z": "295e02fcd67f44c9",
+        "name": "remap values",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Image.S3Object.Bucket",
+                "pt": "msg",
+                "to": "shadowview-photos",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "Image.S3Object.Name",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 160,
+        "wires": [
+            [
+                "0e513fa4b717ce25"
+            ]
+        ]
+    },
+    {
+        "id": "40d9a43bcb7424e2",
+        "type": "switch",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "property": "event",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "add",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "81641ad1e0b4ed37",
+                "4555b00f74510787"
+            ]
+        ]
+    },
+    {
+        "id": "2ec9d3b5c1765a45",
+        "type": "comment",
+        "z": "295e02fcd67f44c9",
+        "name": "for testing",
+        "info": "Manually inject a message to initiate a DetectFaces API call to Rekognition.",
+        "x": 360,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a3a3d7c3fe71cddb",
+        "type": "inject",
+        "z": "295e02fcd67f44c9",
+        "name": "inject file add notification",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "file",
+                "v": "cali_glen5.jpg",
+                "vt": "str"
+            },
+            {
+                "p": "event",
+                "v": "add",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "test1/cali_glen5.jpg",
+        "payloadType": "str",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "40d9a43bcb7424e2"
+            ]
+        ]
+    },
+    {
+        "id": "3bf13c69e2d347b0",
+        "type": "comment",
+        "z": "295e02fcd67f44c9",
+        "name": "for testing",
+        "info": "",
+        "x": 140,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4555b00f74510787",
+        "type": "debug",
+        "z": "295e02fcd67f44c9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3103add74ea379d1",
+        "type": "change",
+        "z": "32f01132f80a3a8f",
+        "name": "network-survey message to map",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.version",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.messageType",
+                "pt": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.data.latitude",
+                "pt": "msg",
+                "to": "payload.lat",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.data.longitude",
+                "pt": "msg",
+                "to": "payload.lon",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.data.deviceName",
+                "pt": "msg",
+                "to": "payload.name",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.data.heading",
+                "pt": "msg",
+                "to": "payload.heading",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.data",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 520,
+        "wires": [
+            [
+                "94aa1999706e444e",
+                "58dd2663d1fb0e75"
+            ]
+        ]
+    },
+    {
+        "id": "58dd2663d1fb0e75",
+        "type": "worldmap",
+        "z": "32f01132f80a3a8f",
+        "name": "",
+        "lat": "27.942975",
+        "lon": "-82.450408",
+        "zoom": "18",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "600",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1240,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "94aa1999706e444e",
+        "type": "worldmap-tracks",
+        "z": "32f01132f80a3a8f",
+        "d": true,
+        "name": "",
+        "depth": 20,
+        "layer": "combined",
+        "smooth": false,
+        "x": 1050,
+        "y": 260,
+        "wires": [
+            [
+                "58dd2663d1fb0e75"
+            ]
+        ]
+    },
+    {
+        "id": "e586b88beb68b863",
+        "type": "inject",
+        "z": "32f01132f80a3a8f",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "71df8fb94388fc66"
+            ]
+        ]
+    },
+    {
+        "id": "3f84d248179f77e5",
+        "type": "comment",
+        "z": "32f01132f80a3a8f",
+        "name": "Set positions of non-broadcasting participants",
+        "info": "The Operations Center is usually in one location.",
+        "x": 350,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ad8fb832439d2fba",
+        "type": "link in",
+        "z": "32f01132f80a3a8f",
+        "name": "map",
+        "links": [
+            "c15846208120206b",
+            "ef552f7e953abcf1",
+            "5ee0923116b48063"
+        ],
+        "x": 205,
+        "y": 540,
+        "wires": [
+            [
+                "4ca58b745b14568e"
+            ]
+        ]
+    },
+    {
+        "id": "e2570d7977f6bfcd",
+        "type": "comment",
+        "z": "32f01132f80a3a8f",
+        "name": "TODO: add tracks selectively",
+        "info": "Problem Description:\n\nThe current implementation places GPS tracks on all messages.  that may not be desirable.  A better approach would be to place this in the hands of the user so that they may be able to select what devices have tracks.",
+        "x": 980,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4ca58b745b14568e",
+        "type": "switch",
+        "z": "32f01132f80a3a8f",
+        "name": "switch on messageType",
+        "property": "payload.messageType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "GnssRecord",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DeviceStatus",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "WifiBeaconRecord",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "BluetoothRecord",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 390,
+        "y": 540,
+        "wires": [
+            [
+                "11653b3182a3edec"
+            ],
+            [
+                "11653b3182a3edec"
+            ],
+            [
+                "480c9c965835b18b"
+            ],
+            [
+                "e019bf35d7468e5e"
+            ]
+        ]
+    },
+    {
+        "id": "11653b3182a3edec",
+        "type": "function",
+        "z": "32f01132f80a3a8f",
+        "name": "Set Icon: Observers (GNSS & DeviceStatus)",
+        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// Devices publishing their own locations\nif (global.get('observers')) {\n    const found = global.get('observers').find((i) => i.name === msg.payload.data.deviceName);\n    if (found) {\n        // This is a known participant in the exercise.  Specifically, the deviceName\n        // in the message is in the list of observers in the database.\n\n        // fill out the fields from the database\n        if (found.icon)           msg.payload.icon = found.icon;\n        if (found.iconcolor) msg.payload.iconColor = found.iconcolor;\n        if (found.sidc)           msg.payload.SIDC = found.sidc;\n        if (found.layer)         msg.payload.layer = found.layer;\n        if (found.label)         msg.payload.label = found.label;\n        if (found.tooltip)     msg.payload.tooltip = found.tooltip;\n        if (found.radius)       msg.payload.radius = found.radius;\n    } else {\n        // The observer is not in the database.\n        // use the symbol for \"exercise unknown\"\n        msg.payload.SIDC = \"SWGPU-------\";\n    }\n} else {\n    // I don't know who this is and there are no known observers in the exercise.\n    // use the symbol for \"exercise unknown\"\n    //msg.payload.SIDC = \"SWGPU-------\";\n    // alternatively, just place the default pin\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 480,
+        "wires": [
+            [
+                "3103add74ea379d1"
+            ]
+        ]
+    },
+    {
+        "id": "480c9c965835b18b",
+        "type": "function",
+        "z": "32f01132f80a3a8f",
+        "name": "Set Icon: WiFiBeaconRecord",
+        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// wifi hot-spots being sensed by observers:\nif (global.get('devicesOfInterest')) {\n    const found = global.get('devicesOfInterest').find((i) => \n            (i.ssid && (i.ssid === msg.payload.data.ssid)) ||\n            (i.bssid && (i.bssid === msg.payload.data.bssid))\n        );\n\n    if (found) {\n        // this is a known foe being sensed by an observer. \n        // Specifically, the ssid and/or the bssid is in the \n        // devices_of_interest table in the database.\n\n        const newName = (found.ssid && (found.ssid === msg.payload.data.ssid)) ? found.ssid : \n                        ((found.bssid && (found.bssid === msg.payload.data.bssid)) ? found.bssid : \"\");\n        msg.payload.data.deviceName = newName;\n \n        // Observation records should not be displayed as an icon. rather, they should be displayed as a circle with\n        // a radius to show that it is not a precise location, but rather, at a distance from the point at\n        // which it was observed.\n        \n        // Set the radius based upon sensed parameters.  \n        // obtained from https://www.appelsiini.net/2017/trilateration-with-n-points/\n\n        // rssi: Received Signal Strength RSSI is expressed as a negative \n        // number. The more negative the number, the weaker the signal. The \n        // closer to zero the number is the stronger the signal is. Anything \n        // down to -75 is considered a good signal.\n        const rssi = msg.payload.data.signalStrength ? msg.payload.data.signalStrength : 0.0;\n        // txPower: Sender transmits the expected RSSI at 1 meter\n        const txPower = msg.payload.data.txPower ? ((msg.payload.data.txPower == 0.0) ? -59.0 : msg.payload.data.txPower): -59.0;\n        \n        if (rssi >= 0) {\n            // we cannot determine the distance from the sensor reading, use a default\n            msg.payload.radius = 15.24; // 50 feet in meters\n        } else {\n            // Choosing value for n is not exact science and it depends on the \n            // enviroment. Typical values are: 2 for free space, 2.7 to 3.5 for\n            // urban areas, 3.0 to 5.0 in suburban areas and 1.6 to 1.8 for\n            // indoors when there is line of sight to the transmitter/beacon.\n            const n = 3.0;\n            msg.payload.radius = Math.pow(10, (txPower - rssi) / (10 * n));\n        }\n\n        // We only want to display the \"interesting\" detections: those that are \n        // in the devices_of_interest table in the database.\n        return msg;\n    }\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 540,
+        "wires": [
+            [
+                "3103add74ea379d1"
+            ]
+        ]
+    },
+    {
+        "id": "e019bf35d7468e5e",
+        "type": "function",
+        "z": "32f01132f80a3a8f",
+        "name": "Set Icon: BluetoothRecord",
+        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// wifi hot-spots being sensed by observers:\nif (global.get('devicesOfInterest')) {\n    const found = global.get('devicesOfInterest').find((i) => \n            (i.ota_device_name && (i.ota_device_name === msg.payload.data.otaDeviceName)) ||\n            (i.source_address && (i.source_address === msg.payload.data.sourceAddress))\n        );\n\n    if (found) {\n        // this is a known foe being sensed by an observer. \n        // Specifically, the ssid and/or the bssid is in the \n        // devices_of_interest table in the database.\n\n        const newName = (found.ota_device_name && (found.ota_device_name === msg.payload.data.otaDeviceName)) ? found.ota_device_name : \n                        ((found.source_address && (found.source_address === msg.payload.data.sourceAddress)) ? found.source_address : \"\");\n        msg.payload.data.deviceName = newName;\n        \n        // Observation records should not be displayed as an icon. rather, they should be displayed as a circle with\n        // a radius to show that it is not a precise location, but rather, at a distance from the point at\n        // which it was observed.\n        \n        // Set the radius based upon sensed parameters.  \n        // obtained from https://www.appelsiini.net/2017/trilateration-with-n-points/\n\n        // rssi: Received Signal Strength RSSI is expressed as a negative \n        // number. The more negative the number, the weaker the signal. The \n        // closer to zero the number is the stronger the signal is. Anything \n        // down to -75 is considered a good signal.\n        const rssi = msg.payload.data.signalStrength ? msg.payload.data.signalStrength : 0.0;\n        // txPower: Bluetooth Sender transmits the expected RSSI at 1 meter\n        const txPower = msg.payload.data.txPower ? ((msg.payload.data.txPower == 0.0) ? -59.0 : msg.payload.data.txPower): -59.0;\n        \n        if (rssi >= 0) {\n            // we cannot determine the distance from the sensor reading, use a default\n            msg.payload.radius = 15.24; // 50 feet in meters\n        } else {\n            // Choosing value for n is not exact science and it depends on the \n            // enviroment. Typical values are: 2 for free space, 2.7 to 3.5 for\n            // urban areas, 3.0 to 5.0 in suburban areas and 1.6 to 1.8 for\n            // indoors when there is line of sight to the transmitter/beacon.\n            const n = 3.0;\n            msg.payload.radius = Math.pow(10, (txPower - rssi) / (10 * n));\n        }\n\n        // We only want to display the \"interesting\" detections: those that are \n        // in the devices_of_interest table in the database.\n        return msg;\n    }\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 600,
+        "wires": [
+            [
+                "3103add74ea379d1"
+            ]
+        ]
+    },
+    {
+        "id": "71df8fb94388fc66",
+        "type": "function",
+        "z": "32f01132f80a3a8f",
+        "name": "Set Icon of Static Observers",
+        "func": "// Some participants never publish their positions.  This node finds\n// the observers that have fixed_lat & fixed_long fields and sends\n// then to the output as node messages\n\nif (global.get('observers')) {\n    const found = global.get('observers').filter((i) => {\n            if (i.fixed_lat && i.fixed_lon) {\n                // This is a known participant with a fixed position.\n                let m = {\n                    payload: {\n                        name : i.name,\n                        lat  : i.fixed_lat,\n                        lon  : i.fixed_lon,\n                    }\n                };\n                \n                // fill out the fields from the database\n                if (i.icon)           m.payload.icon = i.icon;\n                if (i.iconcolor) m.payload.iconColor = i.iconcolor;\n                if (i.sidc)           m.payload.SIDC = i.sidc;\n                if (i.layer)         m.payload.layer = i.layer;\n                if (i.label)         m.payload.label = i.label;\n                if (i.tooltip)     m.payload.tooltip = i.tooltip;\n\n                // send the mesage to the output of this node\n                node.send(m);\n            }\n        });\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "58dd2663d1fb0e75"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,9 @@
+*~
+.config
+.env
+mounted_volumes
+node-red/flows.json
+node-red/flows_cred.json
+nohup.out
+pgadmin/servers.json
+substitutions.sed

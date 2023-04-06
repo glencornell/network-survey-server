@@ -1,0 +1,31 @@
+# Host IP
+HOST_IP=localhost
+
+# DB Configuration
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+POSTGRES_DB=network_survey
+POSTGRES_USER=network_survey_user
+POSTGRES_PASSWORD=network_survey_user00
+
+# Broker Configuration
+MQTT_HOST=broker
+MQTT_PORT=1883
+MQTT_TLS_PORT=8883
+MQTT_USER=wardriver
+MQTT_PASSWORD=rogueone
+
+# Node-Red Configuration
+NODE_RED_PORT=1880
+NODE_RED_CREDENTIAL_SECRET=
+
+# PGAdmin Configuration
+PGADMIN_DEFAULT_EMAIL=admin@example.com
+PGADMIN_DEFAULT_PASSWORD=temp_password
+PGADMIN_PORT=8085
+
+# S3 Bucket Configuration
+AWS_ACCESS_KEY_ID=SUPERSECRET
+AWS_SECRET_ACCESS_KEY=CHANGEME
+AWS_REGION=us-west-1
+AWS_BUCKET_NAME=my-bucket
