@@ -1,4 +1,4 @@
-# MQTT + Node-red + SQL database = Network Survey Server
+# MQTT + Node-red + Postgresql + TimescaleDb + PostGIS = Network Survey Server
 
 set up your own locally hosted server for the network survey android app
 
@@ -53,14 +53,12 @@ Install the Android [network survey](https://play.google.com/store/apps/details?
 - [ ] Improve security (enclose system in a VPN or add TLS with authentication)
 - [ ] create an API gateway for UI
 - [ ] create flows that uses n-point trilateration (or multilateration) based upon RSSI to precisely locate transmitters (namely, base stations & access points) & store results in new table
-- [ ] add media workflows (perhaps using WebDAV/nextcloud for file storage & automatic file sync with android image gallery)
-- [ ] add photo library manager with face/object recognition (perhaps photoprism, librephotos, etc.) for better UIX
 - [ ] decode and process wifi packet over the air (OTA) messages
 - [ ] ingest pcap, wigle csv, & kismetdb files.
 ### Database
 - [ ] generate sql schema from asyncapi
 - [x] use spatial index for geometries in postgis (lat/lon/alt)
-- [ ] use temporal index for timestamps (using timescaledb)
+- [x] use temporal index for timestamps (using timescaledb)
 ### MQTT
 - [ ] use TLS
 - [ ] use basic authentication

@@ -4,6 +4,10 @@
 --- Network Survey Database Schema, based upon
 --- https://messaging.networksurvey.app
 
+-- Extend the database with TimescaleDB & PostGIS
+CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
+CREATE EXTENSION IF NOT EXISTS postgis CASCADE;
+
 -- Always use UTC (aka zulu) time internally.
 SET timezone TO 'UTC';
 
@@ -71,9 +75,14 @@ CREATE TABLE network_survey.devices_of_interest (
     icon TEXT,      -- font awesome icon name, weather-lite icon, :emoji name:, or https://
     iconColor TEXT, -- Standard CSS colour name or #rrggbb hex value.
     SIDC TEXT,      -- NATO symbology code (can be used instead of icon).
-    layer TEXT,     -- specify a layer on the map to add marker to. (default "unknown")
     label TEXT,     -- displays the contents as a permanent label next to the marker, or
-    tooltip TEXT    -- displays the contents when you hover over the marker. (Mutually exclusive with label. Label has priority)
+    tooltip TEXT,   -- displays the contents when you hover over the marker. (Mutually exclusive with label. Label has priority)
+    color TEXT,        -- can set the colour of the polygon or line
+    opacity TEXT,      -- the opacity of the line or outline
+    fill_color TEXT,   -- can set the fill colour of the polygon.
+    fill_opacity TEXT, -- can set the opacity of the polygon fill colour
+    weight INTEGER,    -- the width of the line or outline
+    ttl INTEGER        -- time to live, how long an individual marker stays on map in seconds. Min = 20s
 );
 
 -- an event can be a user-supplied annotation, a notification (such as
@@ -180,6 +189,7 @@ CREATE TABLE network_survey.wifi_beacon_observations (
        standard         TEXT
 );
 CREATE INDEX ix_wifi_beacon_geom ON network_survey.wifi_beacon_observations USING gist(geom);
+SELECT create_hypertable('network_survey.wifi_beacon_observations', 'device_time');
 
 CREATE TABLE network_survey.bluetooth_observations (
        device_serial_number TEXT NOT NULL,
@@ -205,6 +215,7 @@ CREATE TABLE network_survey.bluetooth_observations (
        channel INT
 );
 CREATE INDEX ix_bluetooth_geom ON network_survey.bluetooth_observations USING gist(geom);
+SELECT create_hypertable('network_survey.bluetooth_observations', 'device_time');
 
 CREATE TABLE network_survey.gsm_observations (
        device_serial_number TEXT NOT NULL,
@@ -232,6 +243,7 @@ CREATE TABLE network_survey.gsm_observations (
        provider TEXT
 );
 CREATE INDEX ix_gsm_geom ON network_survey.gsm_observations USING gist(geom);
+SELECT create_hypertable('network_survey.gsm_observations', 'device_time');
 
 CREATE TABLE network_survey.cdma_observations (
        device_serial_number TEXT NOT NULL,
@@ -259,6 +271,7 @@ CREATE TABLE network_survey.cdma_observations (
        provider TEXT
 );
 CREATE INDEX ix_cdma_geom ON network_survey.cdma_observations USING gist(geom);
+SELECT create_hypertable('network_survey.cdma_observations', 'device_time');
 
 CREATE TABLE network_survey.umts_observations (
        device_serial_number TEXT NOT NULL,
@@ -287,6 +300,7 @@ CREATE TABLE network_survey.umts_observations (
        provider TEXT
 );
 CREATE INDEX ix_umts_geom ON network_survey.umts_observations USING gist(geom);
+SELECT create_hypertable('network_survey.umts_observations', 'device_time');
 
 CREATE TABLE network_survey.lte_observations (
        device_serial_number TEXT NOT NULL,
@@ -317,6 +331,7 @@ CREATE TABLE network_survey.lte_observations (
        provider TEXT
 );
 CREATE INDEX ix_lte_geom ON network_survey.lte_observations USING gist(geom);
+SELECT create_hypertable('network_survey.lte_observations', 'device_time');
 
 CREATE TABLE network_survey.nr_observations (
        device_serial_number TEXT NOT NULL,
@@ -349,6 +364,7 @@ CREATE TABLE network_survey.nr_observations (
        provider TEXT
 );
 CREATE INDEX ix_nr_geom ON network_survey.nr_observations USING gist(geom);
+SELECT create_hypertable('network_survey.nr_observations', 'device_time');
 
 CREATE TABLE network_survey.gnss_observations (
        device_serial_number TEXT NOT NULL,
@@ -379,6 +395,7 @@ CREATE TABLE network_survey.gnss_observations (
        vdop FLOAT
 );
 CREATE INDEX ix_gnss_geom ON network_survey.gnss_observations USING gist(geom);
+SELECT create_hypertable('network_survey.gnss_observations', 'device_time');
 
 CREATE TABLE network_survey.energy_detection_observations (
        device_serial_number TEXT NOT NULL,
@@ -402,6 +419,7 @@ CREATE TABLE network_survey.energy_detection_observations (
        duration_sec FLOAT
 );
 CREATE INDEX ix_energy_detection_geom ON network_survey.energy_detection_observations USING gist(geom);
+SELECT create_hypertable('network_survey.energy_detection_observations', 'device_time');
 
 CREATE TABLE network_survey.signal_detection_observations (
        device_serial_number TEXT NOT NULL,
@@ -427,6 +445,7 @@ CREATE TABLE network_survey.signal_detection_observations (
        signal_name TEXT
 );
 CREATE INDEX ix_signal_detection_geom ON network_survey.signal_detection_observations USING gist(geom);
+SELECT create_hypertable('network_survey.signal_detection_observations', 'device_time');
 
 CREATE TABLE network_survey.device_status_observations (
        device_serial_number TEXT NOT NULL,
@@ -444,6 +463,7 @@ CREATE TABLE network_survey.device_status_observations (
        error_message TEXT
 );
 CREATE INDEX ix_device_status_geom ON network_survey.device_status_observations USING gist(geom);
+SELECT create_hypertable('network_survey.device_status_observations', 'device_time');
 
 CREATE TABLE network_survey.phone_state_observations (
        device_serial_number TEXT NOT NULL,
@@ -463,6 +483,7 @@ CREATE TABLE network_survey.phone_state_observations (
        sim_operator TEXT
 );
 CREATE INDEX ix_phone_state_geom ON network_survey.phone_state_observations USING gist(geom);
+SELECT create_hypertable('network_survey.phone_state_observations', 'device_time');
 
 CREATE TABLE network_survey.network_registration_observations (
        device_serial_number TEXT NOT NULL,
@@ -489,6 +510,7 @@ CREATE TABLE network_survey.network_registration_observations (
        cell_identity_nr network_survey.cell_identity_nr_type
 );
 CREATE INDEX ix_network_registration_geom ON network_survey.network_registration_observations USING gist(geom);
+SELECT create_hypertable('network_survey.network_registration_observations', 'device_time');
 
 CREATE TABLE network_survey.gsm_signaling_ota_observations (
        device_serial_number TEXT NOT NULL,
@@ -508,6 +530,7 @@ CREATE TABLE network_survey.gsm_signaling_ota_observations (
        pcap_record BYTEA NOT NULL
 );
 CREATE INDEX ix_gsm_signaling_ota_geom ON network_survey.gsm_signaling_ota_observations USING gist(geom);
+SELECT create_hypertable('network_survey.gsm_signaling_ota_observations', 'device_time');
 
 CREATE TABLE network_survey.umts_nas_ota_observations (
        device_serial_number TEXT NOT NULL,
@@ -526,6 +549,7 @@ CREATE TABLE network_survey.umts_nas_ota_observations (
        pcap_record BYTEA NOT NULL
 );
 CREATE INDEX ix_umts_nas_ota_geom ON network_survey.umts_nas_ota_observations USING gist(geom);
+SELECT create_hypertable('network_survey.umts_nas_ota_observations', 'device_time');
 
 CREATE TABLE network_survey.wcdma_rrc_ota_observations (
        device_serial_number TEXT NOT NULL,
@@ -545,6 +569,7 @@ CREATE TABLE network_survey.wcdma_rrc_ota_observations (
        pcap_record BYTEA NOT NULL
 );
 CREATE INDEX ix_wcdma_rrc_ota_geom ON network_survey.wcdma_rrc_ota_observations USING gist(geom);
+SELECT create_hypertable('network_survey.wcdma_rrc_ota_observations', 'device_time');
 
 CREATE TABLE network_survey.lte_rrc_ota_observations (
        device_serial_number TEXT NOT NULL,
@@ -564,6 +589,7 @@ CREATE TABLE network_survey.lte_rrc_ota_observations (
        pcap_record BYTEA NOT NULL
 );
 CREATE INDEX ix_lte_rrc_ota_geom ON network_survey.lte_rrc_ota_observations USING gist(geom);
+SELECT create_hypertable('network_survey.lte_rrc_ota_observations', 'device_time');
 
 CREATE TABLE network_survey.lte_nas_ota_observations (
        device_serial_number TEXT NOT NULL,
@@ -583,6 +609,7 @@ CREATE TABLE network_survey.lte_nas_ota_observations (
        pcap_record BYTEA NOT NULL
 );
 CREATE INDEX ix_lte_nas_ota_geom ON network_survey.lte_nas_ota_observations USING gist(geom);
+SELECT create_hypertable('network_survey.lte_nas_ota_observations', 'device_time');
 
 CREATE TABLE network_survey.wifi_ota_observations (
        device_serial_number TEXT NOT NULL,
@@ -601,6 +628,7 @@ CREATE TABLE network_survey.wifi_ota_observations (
        pcap_record BYTEA NOT NULL
 );
 CREATE INDEX ix_wifi_ota_geom ON network_survey.wifi_ota_observations USING gist(geom);
+SELECT create_hypertable('network_survey.wifi_ota_observations', 'device_time');
 
 CREATE TABLE network_survey.wifi_probe_request_observations (
        device_serial_number TEXT NOT NULL,
@@ -628,6 +656,7 @@ CREATE TABLE network_survey.wifi_probe_request_observations (
        standard         TEXT
 );
 CREATE INDEX ix_wifi_probe_request_geom ON network_survey.wifi_probe_request_observations USING gist(geom);
+SELECT create_hypertable('network_survey.wifi_probe_request_observations', 'device_time');
 
 ----------------------------------------------------------------
 -- SAMPLE DATA

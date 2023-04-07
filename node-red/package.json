@@ -33,9 +33,7 @@
         "node-red-contrib-config": "1.2.1",
         "node-red-contrib-sqlstring": "0.1.1",
         "node-red-contrib-re-postgres": "0.3.3",
-        "node-red-contrib-web-worldmap": "2.35.0",
-        "node-red-node-aws": "~0.2.3",
-        "node-red-contrib-aws": "0.7.0"
+        "node-red-contrib-web-worldmap": "2.36.0"
     },
     "engines": {
         "node": ">=12"

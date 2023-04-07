@@ -1,6 +1,4 @@
 {
     "5d94fcb2.a8c3d4":{"user":"@POSTGRES_USER@","password":"@POSTGRES_PASSWORD@"},
-    "2b0cf117.cff45e":{"user":"@MQTT_USER@","password":"@MQTT_PASSWORD@"},
-    "1f19a092c91729dd":{"accesskeyid":"@AWS_ACCESS_KEY_ID@","secretaccesskey":"@AWS_SECRET_ACCESS_KEY@"},
-    "da8734493285ad97":{"accessKey":"@AWS_ACCESS_KEY_ID@","secretKey":"@AWS_SECRET_ACCESS_KEY@"}
+    "2b0cf117.cff45e":{"user":"@MQTT_USER@","password":"@MQTT_PASSWORD@"}
 }

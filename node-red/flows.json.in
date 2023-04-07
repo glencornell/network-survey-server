@@ -120,14 +120,6 @@
         "env": []
     },
     {
-        "id": "295e02fcd67f44c9",
-        "type": "tab",
-        "label": "Image Recognition",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "32f01132f80a3a8f",
         "type": "tab",
         "label": "Map Entities",
@@ -169,21 +161,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "647235aa17cb6ba5",
-        "type": "group",
-        "z": "295e02fcd67f44c9",
-        "name": "Detect Faces",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "0e513fa4b717ce25",
-            "44ee20bc8d658918"
-        ],
-        "x": 634,
-        "y": 439
-    },
-    {
         "id": "2b0cf117.cff45e",
         "type": "mqtt-broker",
         "name": "mqtt://@MQTT_HOST@/network_survey",
@@ -219,18 +196,6 @@
         "port": "@POSTGRES_PORT@",
         "db": "@POSTGRES_DB@",
         "ssl": false
-    },
-    {
-        "id": "1f19a092c91729dd",
-        "type": "aws-config"
-    },
-    {
-        "id": "da8734493285ad97",
-        "type": "amazon config",
-        "name": "AWS",
-        "region": "@AWS_REGION@",
-        "proxyRequired": false,
-        "proxy": ""
     },
     {
         "id": "1e3136f371028362",
@@ -934,7 +899,7 @@
         "type": "function",
         "z": "857134635217eb5a",
         "name": "red-force-1 gnss_message",
-        "func": "msg.payload = {\"version\":\"0.8.0\",\"messageType\":\"GnssRecord\",\"data\":{\"deviceSerialNumber\":\"4a06f8a3f06375d1\",\"deviceName\":\"glen-phone\",\"deviceTime\":\"2023-03-23T17:40:53.838-04:00\",\"latitude\":27.080999300815165,\"longitude\":-82.34951946884394,\"altitude\":-5,\"missionId\":\"NS 4a06f8a3f06375d1 20230321-182418\",\"recordNumber\":62023,\"groupNumber\":2993,\"deviceModel\":\"SM-A505G\",\"accuracy\":5,\"constellation\":\"GALILEO\",\"spaceVehicleId\":13,\"carrierFreqHz\":\"1575420032\",\"latitudeStdDevM\":4.5,\"longitudeStdDevM\":4.5,\"altitudeStdDevM\":100,\"agcDb\":2.6,\"cn0DbHz\":34.6}}\nmsg.payload.data.deviceName='red-force-1'\nmsg.payload.data.latitude = 27.942658\nmsg.payload.data.longitude = -82.451324\nreturn msg;",
+        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"GnssRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"groupNumber\": 1,\n    \"deviceModel\": \"Pixel 5\",\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"constellation\": \"GALILEO\",\n    \"spaceVehicleId\": 2345,\n    \"carrierFreqHz\": 120000000,\n    \"clockOffset\": 0.001,\n    \"usedInSolution\": true,\n    \"undulationM\": 125.1,\n    \"latitudeStdDevM\": 5.2,\n    \"longitudeStdDevM\": 4.1,\n    \"altitudeStdDevM\": -122.1,\n    \"agcDb\": -25.2,\n    \"cn0DbHz\": 1.1,\n    \"hdop\": 1.2,\n    \"vdop\": 1.3\n  }\n}\nmsg.payload.data.deviceName='red-force-1'\nmsg.payload.data.latitude = 27.942658\nmsg.payload.data.longitude = -82.451324\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -962,8 +927,8 @@
         "id": "588cd6413d8f3662",
         "type": "function",
         "z": "857134635217eb5a",
-        "name": "observer-1 gnss_message",
-        "func": "msg.payload = {\"version\":\"0.8.0\",\"messageType\":\"GnssRecord\",\"data\":{\"deviceSerialNumber\":\"4a06f8a3f06375d1\",\"deviceName\":\"glen-phone\",\"deviceTime\":\"2023-03-23T17:40:53.838-04:00\",\"latitude\":27.080999300815165,\"longitude\":-82.34951946884394,\"altitude\":-5,\"missionId\":\"NS 4a06f8a3f06375d1 20230321-182418\",\"recordNumber\":62023,\"groupNumber\":2993,\"deviceModel\":\"SM-A505G\",\"accuracy\":5,\"constellation\":\"GALILEO\",\"spaceVehicleId\":13,\"carrierFreqHz\":\"1575420032\",\"latitudeStdDevM\":4.5,\"longitudeStdDevM\":4.5,\"altitudeStdDevM\":100,\"agcDb\":2.6,\"cn0DbHz\":34.6}}\nmsg.payload.data.deviceName='green-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nreturn msg;",
+        "name": "green-force-1 gnss_message",
+        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"GnssRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"groupNumber\": 1,\n    \"deviceModel\": \"Pixel 5\",\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"constellation\": \"GALILEO\",\n    \"spaceVehicleId\": 2345,\n    \"carrierFreqHz\": 120000000,\n    \"clockOffset\": 0.001,\n    \"usedInSolution\": true,\n    \"undulationM\": 125.1,\n    \"latitudeStdDevM\": 5.2,\n    \"longitudeStdDevM\": 4.1,\n    \"altitudeStdDevM\": -122.1,\n    \"agcDb\": -25.2,\n    \"cn0DbHz\": 1.1,\n    \"hdop\": 1.2,\n    \"vdop\": 1.3\n  }\n}\nmsg.payload.data.deviceName='green-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1229,7 +1194,7 @@
         "type": "function",
         "z": "0681491d6e1bf82c",
         "name": "red-force-1 80211_beacon_message",
-        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"WifiBeaconRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"sourceAddress\": \"68:7F:74:B0:14:98\",\n    \"destinationAddress\": \"68:7F:74:B0:14:22\",\n    \"bssid\": \"68:7F:74:B0:14:98\",\n    \"beaconInterval\": 100,\n    \"serviceSetType\": \"BSS\",\n    \"ssid\": \"My Wi-Fi Network\",\n    \"supportedRates\": \"1; 2; 5.5; 11; 18; 24; 36; 54\",\n    \"extendedSupportedRates\": \"6; 9; 12; 48\",\n    \"cipherSuites\": [\n      \"TKIP\",\n      \"CCMP\"\n    ],\n    \"akmSuites\": [\n      \"OPEN\"\n    ],\n    \"encryptionType\": \"WPA_WPA2\",\n    \"wps\": true,\n    \"channel\": 2,\n    \"frequencyMhz\": 2417,\n    \"signalStrength\": -73.1,\n    \"snr\": 19.2,\n    \"nodeType\": \"AP\",\n    \"standard\": \"IEEE80211N\"\n  }\n};\nmsg.payload.data.ssid='red-force-1'\nmsg.payload.data.latitude = 27.941479\nmsg.payload.data.longitude = -82.451878\nreturn msg;",
+        "func": "msg.payload = {\n  \"version\": \"0.10.0\",\n  \"messageType\": \"WifiBeaconRecord\",\n  \"data\": {\n    \"deviceSerialNumber\": \"1234\",\n    \"deviceName\": \"Craxiom Pixel\",\n    \"deviceTime\": \"1996-12-19T16:39:57-08:00\",\n    \"latitude\": 51.470334,\n    \"longitude\": -0.486594,\n    \"altitude\": 13.3,\n    \"missionId\": \"Survey1 20200724-154325\",\n    \"recordNumber\": 1,\n    \"accuracy\": 40,\n    \"heading\": 32.7,\n    \"pitch\": -0.1,\n    \"roll\": 0.15,\n    \"fieldOfView\": 40,\n    \"receiverSensitivity\": -50,\n    \"sourceAddress\": \"68:7F:74:B0:14:98\",\n    \"destinationAddress\": \"68:7F:74:B0:14:22\",\n    \"bssid\": \"68:7F:74:B0:14:98\",\n    \"beaconInterval\": 100,\n    \"serviceSetType\": \"BSS\",\n    \"ssid\": \"My Wi-Fi Network\",\n    \"supportedRates\": \"1; 2; 5.5; 11; 18; 24; 36; 54\",\n    \"extendedSupportedRates\": \"6; 9; 12; 48\",\n    \"cipherSuites\": [\n      \"TKIP\",\n      \"CCMP\"\n    ],\n    \"akmSuites\": [\n      \"OPEN\"\n    ],\n    \"encryptionType\": \"WPA_WPA2\",\n    \"wps\": true,\n    \"channel\": 2,\n    \"frequencyMhz\": 2417,\n    \"signalStrength\": -73.1,\n    \"snr\": 19.2,\n    \"nodeType\": \"AP\",\n    \"standard\": \"IEEE80211N\"\n  }\n};\nmsg.payload.data.ssid='red-force-1'\nmsg.payload.data.latitude = 27.941562\nmsg.payload.data.longitude = -82.452224\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3331,323 +3296,6 @@
         ]
     },
     {
-        "id": "3636c923a4329ae8",
-        "type": "amazon s3 in",
-        "z": "295e02fcd67f44c9",
-        "aws": "1f19a092c91729dd",
-        "bucket": "@AWS_BUCKET_NAME@",
-        "region": "@AWS_REGION@",
-        "filepattern": "",
-        "name": "",
-        "x": 200,
-        "y": 160,
-        "wires": [
-            [
-                "e36c7c6da10a3d92",
-                "9291cc5959382814",
-                "3c10afaab2fce8b6",
-                "40d9a43bcb7424e2"
-            ]
-        ]
-    },
-    {
-        "id": "e36c7c6da10a3d92",
-        "type": "debug",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "9291cc5959382814",
-        "type": "debug",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "file",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "3c10afaab2fce8b6",
-        "type": "debug",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "event",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "0e513fa4b717ce25",
-        "type": "AWS Rekognition",
-        "z": "295e02fcd67f44c9",
-        "g": "647235aa17cb6ba5",
-        "aws": "da8734493285ad97",
-        "operation": "DetectFaces",
-        "SourceImage": "",
-        "TargetImage": "",
-        "CollectionId": "",
-        "ProjectName": "",
-        "ProjectArn": "",
-        "VersionName": "",
-        "OutputConfig": "",
-        "TrainingData": "",
-        "TestingData": "",
-        "Input": "",
-        "Output": "",
-        "Name": "",
-        "Settings": "",
-        "RoleArn": "",
-        "FaceIds": "",
-        "ProjectVersionArn": "",
-        "Image": "",
-        "Id": "",
-        "JobId": "",
-        "FaceId": "",
-        "Video": "",
-        "MinInferenceUnits": "",
-        "SegmentTypes": "",
-        "name": "",
-        "x": 770,
-        "y": 480,
-        "wires": [
-            [
-                "9617a4cc5e8a9b5d"
-            ],
-            [
-                "123a1d776a03a218"
-            ]
-        ]
-    },
-    {
-        "id": "73c6db762c829c1f",
-        "type": "inject",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "props": [
-            {
-                "p": "Image.S3Object.Bucket",
-                "v": "@AWS_BUCKET_NAME@",
-                "vt": "str"
-            },
-            {
-                "p": "Image.S3Object.Name",
-                "v": "test1/cali_glen6.jpg",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 370,
-        "y": 480,
-        "wires": [
-            [
-                "0e513fa4b717ce25"
-            ]
-        ]
-    },
-    {
-        "id": "9617a4cc5e8a9b5d",
-        "type": "debug",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1110,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "123a1d776a03a218",
-        "type": "debug",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1110,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "44ee20bc8d658918",
-        "type": "comment",
-        "z": "295e02fcd67f44c9",
-        "g": "647235aa17cb6ba5",
-        "name": "",
-        "info": "This node is broken:\n\nThe `@AWS_BUCKET_NAME@` bucket is in the `aws-gov-east-1` region, but the AWS Rekognition presently only works in the `aws-gov-west-1` region.  Therefore, you'll get an error:\n\n```failed: InvalidS3ObjectException: Unable to get object metadata from S3. Check object key, region and/or access permissions.```\n",
-        "x": 720,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "81641ad1e0b4ed37",
-        "type": "change",
-        "z": "295e02fcd67f44c9",
-        "name": "remap values",
-        "rules": [
-            {
-                "t": "set",
-                "p": "Image.S3Object.Bucket",
-                "pt": "msg",
-                "to": "@AWS_BUCKET_NAME@",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "Image.S3Object.Name",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 660,
-        "y": 160,
-        "wires": [
-            [
-                "0e513fa4b717ce25"
-            ]
-        ]
-    },
-    {
-        "id": "40d9a43bcb7424e2",
-        "type": "switch",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "property": "event",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "add",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 450,
-        "y": 160,
-        "wires": [
-            [
-                "81641ad1e0b4ed37",
-                "4555b00f74510787"
-            ]
-        ]
-    },
-    {
-        "id": "2ec9d3b5c1765a45",
-        "type": "comment",
-        "z": "295e02fcd67f44c9",
-        "name": "for testing",
-        "info": "Manually inject a message to initiate a DetectFaces API call to Rekognition.",
-        "x": 360,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "a3a3d7c3fe71cddb",
-        "type": "inject",
-        "z": "295e02fcd67f44c9",
-        "name": "inject file add notification",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "file",
-                "v": "cali_glen5.jpg",
-                "vt": "str"
-            },
-            {
-                "p": "event",
-                "v": "add",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "test1/cali_glen5.jpg",
-        "payloadType": "str",
-        "x": 210,
-        "y": 240,
-        "wires": [
-            [
-                "40d9a43bcb7424e2"
-            ]
-        ]
-    },
-    {
-        "id": "3bf13c69e2d347b0",
-        "type": "comment",
-        "z": "295e02fcd67f44c9",
-        "name": "for testing",
-        "info": "",
-        "x": 140,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "4555b00f74510787",
-        "type": "debug",
-        "z": "295e02fcd67f44c9",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "3103add74ea379d1",
         "type": "change",
         "z": "32f01132f80a3a8f",
@@ -3719,7 +3367,7 @@
         "lat": "27.942975",
         "lon": "-82.450408",
         "zoom": "18",
-        "layer": "OSMG",
+        "layer": "EsriDG",
         "cluster": "",
         "maxage": "600",
         "usermenu": "show",
@@ -3870,7 +3518,7 @@
         "type": "function",
         "z": "32f01132f80a3a8f",
         "name": "Set Icon: Observers (GNSS & DeviceStatus)",
-        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// Devices publishing their own locations\nif (global.get('observers')) {\n    const found = global.get('observers').find((i) => i.name === msg.payload.data.deviceName);\n    if (found) {\n        // This is a known participant in the exercise.  Specifically, the deviceName\n        // in the message is in the list of observers in the database.\n\n        // fill out the fields from the database\n        if (found.icon)           msg.payload.icon = found.icon;\n        if (found.iconcolor) msg.payload.iconColor = found.iconcolor;\n        if (found.sidc)           msg.payload.SIDC = found.sidc;\n        if (found.layer)         msg.payload.layer = found.layer;\n        if (found.label)         msg.payload.label = found.label;\n        if (found.tooltip)     msg.payload.tooltip = found.tooltip;\n        if (found.radius)       msg.payload.radius = found.radius;\n    } else {\n        // The observer is not in the database.\n        // use the symbol for \"exercise unknown\"\n        msg.payload.SIDC = \"SWGPU-------\";\n    }\n} else {\n    // I don't know who this is and there are no known observers in the exercise.\n    // use the symbol for \"exercise unknown\"\n    //msg.payload.SIDC = \"SWGPU-------\";\n    // alternatively, just place the default pin\n}\n\nreturn msg;\n",
+        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// Devices publishing their own locations\nif (global.get('observers')) {\n    const found = global.get('observers').find((i) => i.name === msg.payload.data.deviceName);\n    if (found) {\n        // This is a known participant in the exercise.  Specifically, the deviceName\n        // in the message is in the list of observers in the database.\n\n        // fill out the fields from the database\n        if (found.icon)           msg.payload.icon = found.icon;\n        if (found.iconcolor) msg.payload.iconColor = found.iconcolor;\n        if (found.sidc)           msg.payload.SIDC = found.sidc;\n        if (found.layer)         msg.payload.layer = found.layer;\n        if (found.label)         msg.payload.label = found.label;\n        if (found.tooltip)     msg.payload.tooltip = found.tooltip;\n        if (found.radius)       msg.payload.radius = found.radius;\n    } else {\n        // The observer is not in the database.\n        // use the symbol for \"exercise unknown\"\n        msg.payload = {\n            SIDC : \"SWGPU-------\",\n            layer : \"observers\",\n            label : msg.payload.data.deviceName\n        }\n    }\n} else {\n    // I don't know who this is and there are no known observers in the exercise.\n    // use the symbol for \"exercise unknown\"\n    msg.payload = {\n        SIDC : \"SWGPU-------\",\n        layer : \"observers\",\n        label : msg.payload.data.deviceName\n    }\n}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3889,7 +3537,7 @@
         "type": "function",
         "z": "32f01132f80a3a8f",
         "name": "Set Icon: WiFiBeaconRecord",
-        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// wifi hot-spots being sensed by observers:\nif (global.get('devicesOfInterest')) {\n    const found = global.get('devicesOfInterest').find((i) => \n            (i.ssid && (i.ssid === msg.payload.data.ssid)) ||\n            (i.bssid && (i.bssid === msg.payload.data.bssid))\n        );\n\n    if (found) {\n        // this is a known foe being sensed by an observer. \n        // Specifically, the ssid and/or the bssid is in the \n        // devices_of_interest table in the database.\n\n        const newName = (found.ssid && (found.ssid === msg.payload.data.ssid)) ? found.ssid : \n                        ((found.bssid && (found.bssid === msg.payload.data.bssid)) ? found.bssid : \"\");\n        msg.payload.data.deviceName = newName;\n \n        // Observation records should not be displayed as an icon. rather, they should be displayed as a circle with\n        // a radius to show that it is not a precise location, but rather, at a distance from the point at\n        // which it was observed.\n        \n        // Set the radius based upon sensed parameters.  \n        // obtained from https://www.appelsiini.net/2017/trilateration-with-n-points/\n\n        // rssi: Received Signal Strength RSSI is expressed as a negative \n        // number. The more negative the number, the weaker the signal. The \n        // closer to zero the number is the stronger the signal is. Anything \n        // down to -75 is considered a good signal.\n        const rssi = msg.payload.data.signalStrength ? msg.payload.data.signalStrength : 0.0;\n        // txPower: Sender transmits the expected RSSI at 1 meter\n        const txPower = msg.payload.data.txPower ? ((msg.payload.data.txPower == 0.0) ? -59.0 : msg.payload.data.txPower): -59.0;\n        \n        if (rssi >= 0) {\n            // we cannot determine the distance from the sensor reading, use a default\n            msg.payload.radius = 15.24; // 50 feet in meters\n        } else {\n            // Choosing value for n is not exact science and it depends on the \n            // enviroment. Typical values are: 2 for free space, 2.7 to 3.5 for\n            // urban areas, 3.0 to 5.0 in suburban areas and 1.6 to 1.8 for\n            // indoors when there is line of sight to the transmitter/beacon.\n            const n = 3.0;\n            msg.payload.radius = Math.pow(10, (txPower - rssi) / (10 * n));\n        }\n\n        // We only want to display the \"interesting\" detections: those that are \n        // in the devices_of_interest table in the database.\n        return msg;\n    }\n}\n\nreturn null;\n",
+        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// wifi hot-spots being sensed by observers:\nif (global.get('devicesOfInterest')) {\n    const found = global.get('devicesOfInterest').find((i) => \n            (i.ssid && (i.ssid === msg.payload.data.ssid)) ||\n            (i.bssid && (i.bssid === msg.payload.data.bssid))\n        );\n\n    if (found) {\n        // this is a known object of interest being sensed by an observer. \n        // Specifically, the ssid and/or the bssid is in the \n        // devices_of_interest table in the database.\n\n        const newName = (found.ssid && (found.ssid === msg.payload.data.ssid)) ? found.ssid : \n                        ((found.bssid && (found.bssid === msg.payload.data.bssid)) ? found.bssid : \"\");\n        msg.payload.data.deviceName = newName;\n        msg.payload.label = newName;\n        \n        // Observation records should not be displayed as an icon. rather, they should be displayed as a circle with\n        // a radius to show that it is not a precise location, but rather, at a distance from the point at\n        // which it was observed.\n        \n        // Set the radius based upon sensed parameters.  \n        // obtained from https://www.appelsiini.net/2017/trilateration-with-n-points/\n\n        // rssi: Received Signal Strength RSSI is expressed as a negative \n        // number. The more negative the number, the weaker the signal. The \n        // closer to zero the number is the stronger the signal is. Anything \n        // down to -75 is considered a good signal.\n        const rssi = msg.payload.data.signalStrength ? msg.payload.data.signalStrength : 0.0;\n        // txPower: Sender transmits the expected RSSI at 1 meter\n        const txPower = msg.payload.data.txPower ? ((msg.payload.data.txPower == 0.0) ? -59.0 : msg.payload.data.txPower): -59.0;\n        \n        if (rssi >= 0) {\n            // we cannot determine the distance from the sensor reading, use a default\n            msg.payload.radius = 15.24; // 50 feet in meters\n        } else {\n            // Choosing value for n is not exact science and it depends on the \n            // enviroment. Typical values are: 2 for free space, 2.7 to 3.5 for\n            // urban areas, 3.0 to 5.0 in suburban areas and 1.6 to 1.8 for\n            // indoors when there is line of sight to the transmitter/beacon.\n            const n = 3.0;\n            msg.payload.radius = Math.pow(10, (txPower - rssi) / (10 * n));\n        }\n        \n        // Set the icon from values in the database.\n        // Defaults to a red, semi-transparent circle with a white outline.\n        msg.payload.color = found.color ? found.color : '#FFFFFF'\n        msg.payload.opacity = found.opacity ? found.opacity : 0.8\n        msg.payload.fillColor = found.fill_color ? found.fill_color : '#FF0000'\n        msg.payload.fillOpacity = found.fill_opacity ? found.fill_opacity : 0.8\n        msg.payload.weight = found.weight ? found.weight : 4\n\n        msg.payload.ttl = found.ttl ? found.ttl : 30\n        msg.payload.layer = 'detections'\n\n        // We only want to display the \"interesting\" detections: those that are \n        // in the devices_of_interest table in the database.\n        return msg;\n    }\n}\n\nreturn null;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3908,7 +3556,7 @@
         "type": "function",
         "z": "32f01132f80a3a8f",
         "name": "Set Icon: BluetoothRecord",
-        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// wifi hot-spots being sensed by observers:\nif (global.get('devicesOfInterest')) {\n    const found = global.get('devicesOfInterest').find((i) => \n            (i.ota_device_name && (i.ota_device_name === msg.payload.data.otaDeviceName)) ||\n            (i.source_address && (i.source_address === msg.payload.data.sourceAddress))\n        );\n\n    if (found) {\n        // this is a known foe being sensed by an observer. \n        // Specifically, the ssid and/or the bssid is in the \n        // devices_of_interest table in the database.\n\n        const newName = (found.ota_device_name && (found.ota_device_name === msg.payload.data.otaDeviceName)) ? found.ota_device_name : \n                        ((found.source_address && (found.source_address === msg.payload.data.sourceAddress)) ? found.source_address : \"\");\n        msg.payload.data.deviceName = newName;\n        \n        // Observation records should not be displayed as an icon. rather, they should be displayed as a circle with\n        // a radius to show that it is not a precise location, but rather, at a distance from the point at\n        // which it was observed.\n        \n        // Set the radius based upon sensed parameters.  \n        // obtained from https://www.appelsiini.net/2017/trilateration-with-n-points/\n\n        // rssi: Received Signal Strength RSSI is expressed as a negative \n        // number. The more negative the number, the weaker the signal. The \n        // closer to zero the number is the stronger the signal is. Anything \n        // down to -75 is considered a good signal.\n        const rssi = msg.payload.data.signalStrength ? msg.payload.data.signalStrength : 0.0;\n        // txPower: Bluetooth Sender transmits the expected RSSI at 1 meter\n        const txPower = msg.payload.data.txPower ? ((msg.payload.data.txPower == 0.0) ? -59.0 : msg.payload.data.txPower): -59.0;\n        \n        if (rssi >= 0) {\n            // we cannot determine the distance from the sensor reading, use a default\n            msg.payload.radius = 15.24; // 50 feet in meters\n        } else {\n            // Choosing value for n is not exact science and it depends on the \n            // enviroment. Typical values are: 2 for free space, 2.7 to 3.5 for\n            // urban areas, 3.0 to 5.0 in suburban areas and 1.6 to 1.8 for\n            // indoors when there is line of sight to the transmitter/beacon.\n            const n = 3.0;\n            msg.payload.radius = Math.pow(10, (txPower - rssi) / (10 * n));\n        }\n\n        // We only want to display the \"interesting\" detections: those that are \n        // in the devices_of_interest table in the database.\n        return msg;\n    }\n}\n\nreturn null;\n",
+        "func": "// The purpose of this node is to set the icon type \n// of the message so that it may have a different\n// representation on the map.\n\n// MIL-STD 2525 SIDC field generated with https://spatialillusions.com/unitgenerator/\n\n// wifi hot-spots being sensed by observers:\nif (global.get('devicesOfInterest')) {\n    const found = global.get('devicesOfInterest').find((i) => \n            (i.ota_device_name && (i.ota_device_name === msg.payload.data.otaDeviceName)) ||\n            (i.source_address && (i.source_address === msg.payload.data.sourceAddress))\n        );\n\n    if (found) {\n        // this is a known foe being sensed by an observer. \n        // Specifically, the ssid and/or the bssid is in the \n        // devices_of_interest table in the database.\n\n        const newName = (found.ota_device_name && (found.ota_device_name === msg.payload.data.otaDeviceName)) ? found.ota_device_name : \n                        ((found.source_address && (found.source_address === msg.payload.data.sourceAddress)) ? found.source_address : \"\");\n        msg.payload.data.deviceName = newName;\n        msg.payload.label = newName;\n        \n        // Observation records should not be displayed as an icon. rather, they should be displayed as a circle with\n        // a radius to show that it is not a precise location, but rather, at a distance from the point at\n        // which it was observed.\n        \n        // Set the radius based upon sensed parameters.  \n        // obtained from https://www.appelsiini.net/2017/trilateration-with-n-points/\n\n        // rssi: Received Signal Strength RSSI is expressed as a negative \n        // number. The more negative the number, the weaker the signal. The \n        // closer to zero the number is the stronger the signal is. Anything \n        // down to -75 is considered a good signal.\n        const rssi = msg.payload.data.signalStrength ? msg.payload.data.signalStrength : 0.0;\n        // txPower: Bluetooth Sender transmits the expected RSSI at 1 meter\n        const txPower = msg.payload.data.txPower ? ((msg.payload.data.txPower == 0.0) ? -59.0 : msg.payload.data.txPower): -59.0;\n        \n        if (rssi >= 0) {\n            // we cannot determine the distance from the sensor reading, use a default\n            msg.payload.radius = 15.24; // 50 feet in meters\n        } else {\n            // Choosing value for n is not exact science and it depends on the \n            // enviroment. Typical values are: 2 for free space, 2.7 to 3.5 for\n            // urban areas, 3.0 to 5.0 in suburban areas and 1.6 to 1.8 for\n            // indoors when there is line of sight to the transmitter/beacon.\n            const n = 3.0;\n            msg.payload.radius = Math.pow(10, (txPower - rssi) / (10 * n));\n        }\n\n        \n        // Set the icon from values in the database.\n        // Defaults to a orange, semi-transparent circle with a white outline.\n        msg.payload.color = found.color ? found.color : '#FFFFFF'\n        msg.payload.opacity = found.opacity ? found.opacity : 0.8\n        msg.payload.fillColor = found.fill_color ? found.fill_color : '#FFAF3B'\n        msg.payload.fillOpacity = found.fill_opacity ? found.fill_opacity : 0.8\n        msg.payload.weight = found.weight ? found.weight : 4\n\n        msg.payload.ttl = found.ttl ? found.ttl : 30\n        msg.payload.layer = 'detections'\n\n        // We only want to display the \"interesting\" detections: those that are \n        // in the devices_of_interest table in the database.\n        return msg;\n    }\n}\n\nreturn null;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
